@@ -23,12 +23,14 @@ set -uo pipefail
 # (the executable, used for the installed-check) and run_<name>() (takes a
 # prompt-file path as $1 and writes the model's answer to stdout).
 # See references/members.md.
-DEFAULT_MEMBERS=(claude codex gemini cursor)
+DEFAULT_MEMBERS=(claude codex cursor)
 
 bin_claude=claude        ; run_claude() { claude -p "$(cat "$1")" --output-format text; }
 bin_codex=codex          ; run_codex()  { codex exec "$(cat "$1")"; }
-bin_gemini=gemini        ; run_gemini() { gemini -p "$(cat "$1")"; }
 bin_cursor=cursor-agent  ; run_cursor() { cursor-agent -p "$(cat "$1")" --output-format text; }
+
+# Available but OFF by default — add its name to DEFAULT_MEMBERS above to enable:
+bin_gemini=gemini        ; run_gemini() { gemini -p "$(cat "$1")"; }
 # ----------------------------------------------------------------------------
 
 TIMEOUT="${COUNCIL_TIMEOUT:-180}"

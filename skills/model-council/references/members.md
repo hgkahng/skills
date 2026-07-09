@@ -4,14 +4,14 @@ Each council member is a locally-installed AI CLI invoked in **non-interactive /
 headless mode** so it prints one answer and exits. The roster lives at the top of
 [`../scripts/council.sh`](../scripts/council.sh).
 
-## Default roster
+## Roster
 
-| Member   | Binary         | Non-interactive invocation                     | Notes |
-|----------|----------------|------------------------------------------------|-------|
-| `claude` | `claude`       | `claude -p "PROMPT" --output-format text`      | `-p`/`--print` runs the agent loop once and exits. |
-| `codex`  | `codex`        | `codex exec "PROMPT"`                           | `exec` streams progress to stderr, prints the final answer to stdout. |
-| `gemini` | `gemini`       | `gemini -p "PROMPT"`                            | `-p`/`--prompt` = headless; add `--yolo` only if you want it to run tools. |
-| `cursor` | `cursor-agent` | `cursor-agent -p "PROMPT" --output-format text`| Known bug: `-p` can hang and not exit — the runner force-kills it on timeout. |
+| Member   | Binary         | Non-interactive invocation                     | Default | Notes |
+|----------|----------------|------------------------------------------------|---------|-------|
+| `claude` | `claude`       | `claude -p "PROMPT" --output-format text`      | ✅ on   | `-p`/`--print` runs the agent loop once and exits. |
+| `codex`  | `codex`        | `codex exec "PROMPT"`                           | ✅ on   | `exec` streams progress to stderr, prints the final answer to stdout. |
+| `cursor` | `cursor-agent` | `cursor-agent -p "PROMPT" --output-format text`| ✅ on   | Known bug: `-p` can hang and not exit — the runner force-kills it on timeout. |
+| `gemini` | `gemini`       | `gemini -p "PROMPT"`                            | ⚪ opt-in | Defined in the script but not in `DEFAULT_MEMBERS`; add it there (or `--members …,gemini`) to enable. `-p` = headless. |
 
 ## Adding a member
 

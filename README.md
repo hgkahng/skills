@@ -34,7 +34,8 @@ three target dirs cover all four agents.
 
 | Skill | What it does |
 |-------|--------------|
-| [`model-council`](skills/model-council/) | Ask several AI models the same question in parallel, then synthesize their answers with consensus + dissent. |
+| [`model-council`](skills/model-council/) | Ask several AI models the same question in parallel, then combine — synthesize (consensus + dissent), best-of-N judge, or critique. |
+| [`brief`](skills/brief/) | Enforce short, answer-first replies: commit, cut padding, offer depth on request. |
 
 ## Add a new skill
 
