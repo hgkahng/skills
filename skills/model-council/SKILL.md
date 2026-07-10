@@ -18,6 +18,16 @@ combine their independent answers. Convening a council = four decisions, in orde
 **Not** for quick factual lookups, or tasks needing members to edit files or run
 tools — members only return written opinions.
 
+## Explicit invocation
+
+When invoked directly (e.g. `/model-council …` or `$model-council …`), parse the
+arguments as **`[mode] [rest of the ask]`**: if the first token is a mode —
+`synthesize` | `judge` | `critique` (aliases: `decide`/`second-opinion` →
+synthesize, `best-of-N`/`build` → judge, `review` → critique) — use it and skip
+Step 1. Otherwise treat the whole argument string as the ask and infer the mode.
+A composition named anywhere in the ask ("via openrouter", "subagents: 2× opus +
+3× sonnet", "cli only") skips the Step 2 popup.
+
 ## Step 1 — Mode (how answers are combined)
 
 Infer from intent; ask in one line if unclear.
