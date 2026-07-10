@@ -34,7 +34,7 @@ three target dirs cover all four agents.
 
 | Skill | What it does |
 |-------|--------------|
-| [`model-council`](skills/model-council/) | Ask several AI models the same question in parallel, then combine — synthesize (consensus + dissent), best-of-N judge, or critique. |
+| [`model-council`](skills/model-council/) | Ask a council of AI models one question in parallel — via host subagents, local CLIs, or OpenRouter — with recommended presets, random-forest prompt diversity, and three combine modes (synthesize / judge / critique). |
 | [`brief`](skills/brief/) | Enforce short, answer-first replies: commit, cut padding, offer depth on request. |
 
 ## Add a new skill

@@ -1,81 +1,104 @@
 ---
 name: model-council
-description: Consult several independent AI models (a "council") on the same question in parallel, then combine their answers. Supports three modes you choose from — poll-and-synthesize (merge answers, surface consensus and dissent), best-of-N judge panel (each model drafts a full solution, then score and pick/merge the winner), and critique panel (collect diverse critiques of your draft, no rewrite). Use when the user wants a second opinion, cross-model agreement, the strongest possible draft, or blind-spot review before committing. Triggers include "ask the council", "model council", "best of N", "get critiques", "what do other models think", "second opinion".
+description: Consult a council of AI models on the same question in parallel, then combine their answers. Three combine modes — synthesize (consensus + dissent), best-of-N judge, critique panel — and three backends: parallel subagents of the host agent (e.g. 2× Opus + 3× Sonnet), local agent CLIs (claude/codex/cursor), or any model via the OpenRouter API. Presents recommended council presets for the user to pick from, and boosts diversity random-forest-style by giving members paraphrased framings of one frozen core question. Use for second opinions, cross-model agreement, strongest-draft generation, or blind-spot review before committing. Triggers: "ask the council", "model council", "second opinion", "best of N", "what do other models think", "get critiques".
 ---
 
 # Model Council
 
-Fan a single, self-contained prompt out to several AI CLIs **in parallel**, then
-combine their independent answers. Choose the **mode** that fits the intent.
+Fan one self-contained prompt out to several AI models **in parallel**, then
+combine their independent answers. Convening a council = four decisions, in order:
+**mode → composition → prompts → combine**.
 
 ## When to use
 
-- The user says "ask the council", "model council", wants "other models' opinions",
-  a "second opinion", "best of N", or a "critique".
-- The work is high-stakes, ambiguous, or a classic single-model blind spot:
-  architecture, security, risky refactors, close tradeoffs, "is this any good".
+- "Ask the council", "second opinion", "best of N", "what do other models think".
+- High-stakes or ambiguous work: architecture, security, risky refactors, close
+  tradeoffs, "is this any good".
 
-**Not** for: quick factual lookups, or tasks needing the members to actually edit
-files or run tools — the council only returns written opinions.
+**Not** for quick factual lookups, or tasks needing members to edit files or run
+tools — members only return written opinions.
 
-## Modes — pick one
+## Step 1 — Mode (how answers are combined)
 
-Infer the mode from the user's intent (or ask in one line if unclear):
+Infer from intent; ask in one line if unclear.
 
-**1. Synthesize** *(default — "decide / second opinion")*
-- **Prompt each member:** the question, self-contained, ending with *"Recommend one
-  option; give your single strongest reason and the main risk. ≤200 words."*
-- **Process results:** produce **Recommendation → Consensus → Disagreements (who
-  said what) → Confidence & tie-breaker**.
+1. **Synthesize** *(default — decide / second opinion)*: each member recommends one
+   option + strongest reason + main risk, ≤200 words. → Report **Recommendation →
+   Consensus → Disagreements (who said what) → Confidence & tie-breaker**.
+2. **Judge / best-of-N** *(strongest artifact)*: each member produces a complete
+   solution against explicit criteria. → Score all with the **same criteria**, name
+   the winner, merge the best parts.
+3. **Critique panel** *(review before shipping)*: each member lists what's wrong,
+   risky, or missing — no rewrites. → Dedupe into a severity-ranked issue list with
+   attribution.
 
-**2. Judge panel / best-of-N** *("give me the strongest artifact")*
-- **Prompt each member:** the task **plus explicit quality criteria**, asking for a
-  complete solution.
-- **Process results:** score each solution against the criteria, name the winner,
-  then **merge the best parts** into one answer and note why it wins.
+## Step 2 — Composition (the popup rule)
 
-**3. Critique panel** *("review mine before I ship")*
-- **Prompt each member:** your draft/code/plan + *"What's wrong, risky, or missing?
-  Be specific. Do not rewrite it."*
-- **Process results:** dedupe into a **ranked issue list** (severity), attribute
-  each to the model that raised it, and drop the noise.
+If the user already specified members/backend, use exactly that. **Otherwise,
+present the recommended presets and let the user choose** — via the host's
+question/choice UI if it has one, else as a numbered list. In non-interactive runs
+don't block: take the first preset whose requirements are met and say so.
 
-## How to run
+| # | Preset | Backend | Composition | Pick when |
+|---|--------|---------|-------------|-----------|
+| 1 | **Independent seconds** | `cli` | claude + codex + cursor (installed subset) | You want truly independent, cross-vendor agent opinions. |
+| 2 | **Tiered deep-dive** | `subagents` | 2× opus + 3× sonnet, paraphrased frames | Zero setup; depth + breadth from one provider. |
+| 3 | **Best-of-5 builders** | `subagents` | 5× one tier, each a different approach directive | Judge mode; you want the strongest artifact. |
+| 4 | **Max diversity** | `openrouter` | 3–5 cross-vendor models (discover via `--list-models`) | Exotic/raw models; needs `OPENROUTER_API_KEY`. |
 
-1. **Build the mode-appropriate prompt.** Members share **none** of this session's
-   context — inline everything: question/artifact, constraints, and the answer shape.
-2. **Fan out:**
-   ```bash
-   scripts/council.sh "YOUR SELF-CONTAINED PROMPT"     # or --file prompt.md
-   ```
-   Auto-detects installed members, runs them concurrently with a per-member timeout,
-   and prints each answer under a `===== <model> =====` header.
-   Flags: `--members claude,codex` · `--exclude cursor` · `--timeout 240` · `--list`.
-3. **Read every block in full, then process per the chosen mode.** Never just paste
-   the raw responses back.
+Caveat to apply when choosing: same-provider subagents share priors — great for
+best-of-N and self-consistency, weaker for "independent second opinion", where
+cross-vendor (presets 1/4) is what breaks the correlation.
 
-## General principles (all modes)
+## Step 3 — Prompts (random-forest diversity)
 
-- Weigh arguments on **merit, not vote count** — say so explicitly if the majority
-  looks wrong.
-- **Attribute** notable claims to the model that made them.
-- Lead with the bottom line; keep it tight.
+Members share **none** of this session's context; inline everything. Then
+decorrelate the council like a random forest — details and a worked example in
+[`references/orchestration.md`](references/orchestration.md):
+
+- **Vary the frame, freeze the core.** Write one **core block** — the question,
+  artifact/code, hard constraints, and required answer shape — kept **verbatim**
+  in every variant. Vary only the framing lens around it (risk-first,
+  simplicity-first, user-first, skeptic…).
+- **Keep one control member** on the plain, unparaphrased prompt.
+- **Log the member → variant mapping**; you'll need it in Step 4.
+- Judge mode: vary the *approach directive*, never the scoring criteria.
+  Critique mode: assign each critic a distinct lens (security, perf,
+  maintainability, UX) instead of free paraphrase.
+
+## Step 4 — Fan out & combine
+
+Fan out by backend:
+
+- **`subagents`** — spawn parallel subagents via the host's mechanism (e.g. Claude
+  Code's Agent/Task tool with per-agent model overrides like `opus`/`sonnet`), one
+  prompt variant each, collect final messages. No scripts needed.
+- **`cli`** — `scripts/council.sh "PROMPT"` (or `--file f.md`); per-member variants
+  via `--variants-dir DIR` containing `<member>.md`. Flags: `--members a,b` ·
+  `--exclude x` · `--timeout 240` · `--list`.
+- **`openrouter`** — `scripts/openrouter.sh --models a,b,c "PROMPT"`; variants via
+  `--variants-dir DIR` containing `<model-slug-sanitized>.md`. Discover models with
+  `--list-models [filter]`. Needs `OPENROUTER_API_KEY`.
+
+Then combine per the mode. Read every answer in full; **never paste raw responses
+back**. Weigh arguments on merit, not vote count. Attribute claims. And check
+dissent against the variant mapping: **if disagreement tracks the paraphrase, the
+answer is framing-sensitive — report that explicitly and lower confidence.**
 
 ## Configuration
 
-- **Default roster:** `claude`, `codex`, `cursor` (whichever are installed).
-  `gemini` ships in the script but is **off by default** — add it to
-  `DEFAULT_MEMBERS`. Edit the roster / invocations in `scripts/council.sh`; see
-  [`references/members.md`](references/members.md).
-- **Env:** `COUNCIL_TIMEOUT` (per-member seconds, default 180), `COUNCIL_OUT`
-  (directory to save a timestamped transcript).
+- CLI roster & invocations: top of `scripts/council.sh`; see
+  [`references/members.md`](references/members.md). Default `claude, codex,
+  cursor`; `gemini` defined but opt-in.
+- Env: `COUNCIL_TIMEOUT` (per-member seconds, default 180), `COUNCIL_OUT` (save
+  timestamped transcripts), `OPENROUTER_API_KEY` / `OPENROUTER_MODELS`.
 
 ## Pitfalls
 
-- Members can't see your files or this chat — **inline all context** in the prompt.
-- Keep prompts to **questions/artifacts**, not agentic tasks. Each member runs in a
-  throwaway temp dir so it can't touch your project.
-- `cursor-agent -p` has a known bug where it doesn't exit; the script force-kills it
-  on timeout. `--exclude cursor` if it's flaky for you.
-- Running the council *from* one of the members (e.g. Claude Code invoking
-  `claude -p`) is fine. `--exclude` it if you want only the *other* models' views.
+- Prompts must be self-contained **questions/artifacts**, not agentic tasks; CLI
+  members run in throwaway temp dirs so they can't touch your project.
+- `cursor-agent -p` may hang (known bug); the runner force-kills on timeout.
+- Paraphrasing must never touch the core block — if variants drift semantically,
+  disagreement is noise, not signal.
+- Running the council *from* a member (Claude Code invoking `claude -p`) is fine;
+  `--exclude` it if you want only the other models' views.

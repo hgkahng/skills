@@ -1,5 +1,9 @@
 # Council members — CLI invocations & notes
 
+This file covers the **`cli` backend** only; the `subagents` and `openrouter`
+backends (and the preset/diversity system) are in
+[`orchestration.md`](orchestration.md).
+
 Each council member is a locally-installed AI CLI invoked in **non-interactive /
 headless mode** so it prints one answer and exits. The roster lives at the top of
 [`../scripts/council.sh`](../scripts/council.sh).

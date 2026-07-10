@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-# model-council — fan one prompt out to several AI CLIs in parallel and collect
-# their independent answers. The CALLING agent synthesizes them (see SKILL.md).
+# model-council (cli backend) — fan one prompt out to several AI CLIs in parallel
+# and collect their independent answers. The CALLING agent synthesizes them (see
+# SKILL.md).
 #
 # Usage:
 #   council.sh "your question"
@@ -8,11 +9,13 @@
 #   echo "your question" | council.sh
 #
 # Options:
-#   --members a,b,c   Only use these members (default: all detected)
-#   --exclude a,b     Skip these members
-#   --timeout SECS    Per-member timeout (default: $COUNCIL_TIMEOUT or 180)
-#   --list            List configured members and whether each is installed
-#   -h, --help        Show this header
+#   --members a,b,c      Only use these members (default: all detected)
+#   --exclude a,b        Skip these members
+#   --timeout SECS       Per-member timeout (default: $COUNCIL_TIMEOUT or 180)
+#   --variants-dir DIR   Per-member prompt variants: DIR/<member>.md overrides the
+#                        shared prompt for that member (random-forest diversity)
+#   --list               List configured members and whether each is installed
+#   -h, --help           Show this help
 #
 # Env: COUNCIL_TIMEOUT (seconds), COUNCIL_OUT (dir to save a transcript)
 
@@ -62,16 +65,18 @@ MEMBERS=("${DEFAULT_MEMBERS[@]}")
 EXCLUDE=()
 PROMPT=""
 PROMPT_FILE=""
+VARIANTS_DIR=""
 LIST=0
 while [[ $# -gt 0 ]]; do
   case "$1" in
-    --members) IFS=',' read -r -a MEMBERS <<< "$2"; shift 2 ;;
-    --exclude) IFS=',' read -r -a EXCLUDE <<< "$2"; shift 2 ;;
-    --timeout) TIMEOUT="$2"; shift 2 ;;
-    --file)    PROMPT_FILE="$2"; shift 2 ;;
-    --list)    LIST=1; shift ;;
-    -h|--help) sed -n '2,20p' "$SELF"; exit 0 ;;
-    *)         PROMPT="${PROMPT:+$PROMPT }$1"; shift ;;
+    --members)      IFS=',' read -r -a MEMBERS <<< "$2"; shift 2 ;;
+    --exclude)      IFS=',' read -r -a EXCLUDE <<< "$2"; shift 2 ;;
+    --timeout)      TIMEOUT="$2"; shift 2 ;;
+    --file)         PROMPT_FILE="$2"; shift 2 ;;
+    --variants-dir) VARIANTS_DIR="$2"; shift 2 ;;
+    --list)         LIST=1; shift ;;
+    -h|--help)      sed -n '/^# Usage:/,/^# Env:/p' "$SELF" | sed 's/^# \{0,1\}//'; exit 0 ;;
+    *)              PROMPT="${PROMPT:+$PROMPT }$1"; shift ;;
   esac
 done
 
@@ -107,15 +112,23 @@ done
 [[ ${#roster[@]} -eq 0 ]] && { echo "council: no available members" >&2; exit 3; }
 [[ -z "$TIMEOUT_BIN" ]] && echo "council: no 'timeout' binary found — running without per-member timeouts" >&2
 
+# per-member prompt: variants-dir/<member>.md if present, else the shared prompt
+prompt_for() {
+  if [[ -n "$VARIANTS_DIR" && -f "$VARIANTS_DIR/$1.md" ]]; then printf '%s' "$VARIANTS_DIR/$1.md"
+  else printf '%s' "$tmp_prompt"; fi
+}
+
 # --------------------------------------------------------------- fan out -----
 workroot="$(mktemp -d)"
 echo "council: consulting ${roster[*]} (timeout ${TIMEOUT}s each)…" >&2
 for m in "${roster[@]}"; do
+  pf="$(prompt_for "$m")"
+  [[ "$pf" != "$tmp_prompt" ]] && echo "council: $m gets variant $pf" >&2
   (
     if [[ -n "$TIMEOUT_BIN" ]]; then
-      "$TIMEOUT_BIN" -k 10 "$TIMEOUT" "$SELF" __run "$m" "$tmp_prompt" >"$workroot/$m.out" 2>"$workroot/$m.err"
+      "$TIMEOUT_BIN" -k 10 "$TIMEOUT" "$SELF" __run "$m" "$pf" >"$workroot/$m.out" 2>"$workroot/$m.err"
     else
-      "$SELF" __run "$m" "$tmp_prompt" >"$workroot/$m.out" 2>"$workroot/$m.err"
+      "$SELF" __run "$m" "$pf" >"$workroot/$m.out" 2>"$workroot/$m.err"
     fi
     echo $? > "$workroot/$m.rc"
   ) &
@@ -137,7 +150,15 @@ printf '%s\n' "$transcript"
 if [[ -n "${COUNCIL_OUT:-}" ]]; then
   mkdir -p "$COUNCIL_OUT"
   ts="$(date +%Y%m%d-%H%M%S)"
-  { echo "# council $ts"; echo; echo "## prompt"; echo; cat "$tmp_prompt"; echo;
+  { echo "# council $ts"; echo; echo "## prompt"; echo; cat "$tmp_prompt"; echo
+    if [[ -n "$VARIANTS_DIR" ]]; then
+      echo "## variants"; echo
+      for m in "${roster[@]}"; do
+        pf="$(prompt_for "$m")"
+        [[ "$pf" == "$tmp_prompt" ]] && pf="(shared prompt)"
+        echo "- $m: $pf"
+      done; echo
+    fi
     echo "## responses"; printf '%s\n' "$transcript"; } > "$COUNCIL_OUT/council-$ts.md"
   echo "council: saved $COUNCIL_OUT/council-$ts.md" >&2
 fi
