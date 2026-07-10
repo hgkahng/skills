@@ -41,3 +41,9 @@ bin/sync.sh --list   # preview / check current link state
 
 Test it by invoking it in the target agent; skills are model-invoked from their
 `description`, so verify the description actually triggers on realistic phrasing.
+
+When a change is worth distributing, bump `version` in
+`.claude-plugin/plugin.json` (the Claude Code marketplace channel keys updates
+off it) and keep the plugin description in `.claude-plugin/marketplace.json` in
+sync with the skill list. The `npx skills` and `bin/sync.sh` channels need no
+release step.

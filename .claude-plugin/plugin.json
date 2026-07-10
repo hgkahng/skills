@@ -1,0 +1,8 @@
+{
+  "name": "everyday-skills",
+  "description": "Everyday skills: model-council (consult a council of AI models in parallel) and brief (answer-first, concise replies).",
+  "version": "0.1.0",
+  "author": {
+    "name": "hgkahng"
+  }
+}

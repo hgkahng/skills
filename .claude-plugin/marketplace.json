@@ -1,0 +1,18 @@
+{
+  "name": "hgkahng-skills",
+  "owner": {
+    "name": "hgkahng"
+  },
+  "metadata": {
+    "description": "Personal cross-agent skills library — everyday workflows authored once in the portable Agent Skills format."
+  },
+  "plugins": [
+    {
+      "name": "everyday-skills",
+      "source": "./",
+      "description": "Everyday skills: model-council (consult a council of AI models in parallel — synthesize / judge / critique modes over subagent, CLI, or OpenRouter backends) and brief (answer-first, concise replies).",
+      "category": "productivity",
+      "tags": ["skills", "multi-model", "council", "concise"]
+    }
+  ]
+}
