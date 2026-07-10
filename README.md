@@ -28,7 +28,7 @@ Three channels — pick by how you consume the skills:
 |---|---|---|
 | **Develop / daily driver** (this repo is yours) | `git clone … && bin/sync.sh` | **Symlinks** — edit the repo and every agent updates instantly; `git pull` syncs machines. |
 | **Quick install, any agent** (70+ agents) | `npx skills add hgkahng/skills` | **Copies** — no clone needed; update with `npx skills update`. Single skill: `npx skills add hgkahng/skills --skill model-council`. |
-| **Claude Code plugin** | `/plugin marketplace add hgkahng/skills` then `/plugin install everyday-skills@hgkahng-skills` | **Copies**, versioned via `.claude-plugin/`. Claude Code only. |
+| **Claude Code plugin** | `/plugin marketplace add hgkahng/skills` then `/plugin install everyday-skills@hgkahng` | **Copies**, versioned via `.claude-plugin/`. Claude Code only. |
 
 The distinction that matters: `sync.sh` is dev mode (live links, single source of
 truth), the other two are distribution (snapshots at install time).
