@@ -49,6 +49,7 @@ three target dirs cover all four agents.
 |-------|--------------|
 | [`model-council`](skills/model-council/) | Ask a council of AI models one question in parallel — via host subagents, local CLIs, or OpenRouter — with recommended presets, random-forest prompt diversity, and three combine modes (synthesize / judge / critique). |
 | [`brief`](skills/brief/) | Enforce short, answer-first replies: commit, cut padding, offer depth on request. |
+| [`inception`](skills/inception/) | Turn rule lists for agents into the higher-level principle they derive from — overt, true, positively framed — with a built-in evaluation protocol. |
 
 ## Add a new skill
 

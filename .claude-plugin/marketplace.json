@@ -10,9 +10,9 @@
     {
       "name": "everyday-skills",
       "source": "./",
-      "description": "Everyday skills: model-council (consult a council of AI models in parallel — synthesize / judge / critique modes over subagent, CLI, or OpenRouter backends) and brief (answer-first, concise replies).",
+      "description": "Everyday skills: model-council (consult a council of AI models in parallel — synthesize / judge / critique modes over subagent, CLI, or OpenRouter backends), brief (answer-first, concise replies), and inception (turn rule lists for agents into the principle they derive from).",
       "category": "productivity",
-      "tags": ["skills", "multi-model", "council", "concise"]
+      "tags": ["skills", "multi-model", "council", "concise", "prompting"]
     }
   ]
 }

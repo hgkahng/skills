@@ -1,0 +1,79 @@
+# Evaluating an incepted principle
+
+How to know the principle actually beats the rule list it replaced — not by
+feel, but by a protocol honest enough to kill the principle if it doesn't.
+
+The claim under test is specific. Not "answers get smarter" (hard to measure,
+and structured-scaffold evals routinely come back null — see
+[cc-thinking-skills](https://github.com/tjboudreaux/cc-thinking-skills), whose
+rigorous pipeline found zero of 39 thinking skills with proven accuracy gains).
+The claim is: **behavior conforms to intent more reliably, especially in
+situations the rules never anticipated, and resists letter-compliance gaming.**
+Conformance is checkable per-case, which makes this claim measurable where
+"accuracy" is noise.
+
+## Static checks (free, at authoring time)
+
+Already part of the method, listed here as the first eval gate:
+
+1. **Forward derivation** — every kept behavior falls out of the principle alone.
+2. **Reverse derivation** — unwanted derivable behaviors are named in Boundary.
+3. **Platitude check** — the principle demonstrably excludes something.
+
+A principle failing any of these is not ready for the A/B.
+
+## A/B protocol
+
+**Arms.** Same behavioral goal, two instruction sets:
+- **A** — the original rule list.
+- **B** — the incepted output (Principle + Why + Derived anchors + Boundary).
+- **Token-match the arms** (pad A with its own rationale or trim B) so "more
+  text" cannot masquerade as "better concept".
+- Optional third arm **∅** (no instructions) to confirm the behavior doesn't
+  come for free from the base model.
+
+**Intent rubric.** Before generating anything, freeze the one-sentence intent
+(method step 1) plus 3–5 observable conformance criteria. Judges get only this.
+
+**Test suite.** 10–15 prompts per bucket, written before running either arm:
+
+| Bucket | Construction | Success bar |
+|---|---|---|
+| **On-target** | Situations the rules explicitly cover | B ≥ A (principle must not lose ground it inherited) |
+| **Transfer** | Situations the rules never mention but the intent covers — vary the surface domain (if rules were about chat answers, probe code comments, commit messages, reports) | **B > A** — this bucket *is* the generalization claim |
+| **Adversarial** | (a) letter/spirit traps where obeying a rule literally violates intent; (b) out-of-scope probes where the principle might over-fire (Boundary territory) | B > A on traps; B ≈ ∅ on out-of-scope probes |
+
+**Judging.** Blind, rubric-based, multi-model — run the transcripts through the
+`model-council` skill in **judge mode**: identical criteria (the intent rubric)
+for every judge, arm labels stripped, neither "inception" nor the arms' existence
+mentioned. Score each transcript pass/fail per criterion; aggregate per bucket.
+
+**Reading the result.**
+- B ≥ A on-target, B > A on transfer and traps, B ≈ ∅ out-of-scope → the
+  principle took. Ship it.
+- B ≈ A everywhere → the inception added nothing over the rules for this case;
+  keep whichever is shorter and say so.
+- B < A anywhere, or B ≠ ∅ out-of-scope → the concept is wrong or over-broad;
+  return to the ladder with the failing transcripts as evidence.
+
+**Pre-register the bar, publish the verdict.** Decide the success/kill thresholds
+before judging, and record the outcome (in the skill's notes or commit message)
+even when it's null — especially when it's null. An unevaluated principle is
+folklore; a killed principle is information.
+
+## Longitudinal signal (the metric that matters)
+
+The skill exists because corrections kept recurring. So the real-world KPI is
+**correction recurrence**: after installing the principle, does the same
+complaint stop appearing across sessions? Track loosely — a correction that
+comes back within a week is a failed inception regardless of what the A/B said.
+
+## Practicality notes
+
+- Personal-scale N (10–15/bucket) yields directional evidence, not significance.
+  That is fine — the question is "keep or kill", not "publish".
+- Reuse suites: the transfer and adversarial buckets for a given intent are
+  reusable every time the principle's wording is revised.
+- First calibration case for this repo: `brief` v1 (rule list) vs `brief` v2
+  (conclusion-first principle) — ground truth already exists for what v2 was
+  supposed to fix.
