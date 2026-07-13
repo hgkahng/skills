@@ -69,11 +69,14 @@ harness itself must pass four gates:
 `model-council` skill in **judge mode**: identical criteria (the intent rubric)
 for every judge, arm labels stripped, neither "inception" nor the arms' existence
 mentioned. Score each transcript pass/fail per criterion; aggregate per bucket.
-Require **grounding**: each judge must quote the opening words of every
-transcript in its score line, and the quotes are verified mechanically against
-the files — any mismatch voids that judge's line. (Calibration found even a
-frontier-model judge silently crossing files without this; grounding took its
-sabotage-detection from 58% to 100%.)
+Require **grounding**: each judge must quote the **first and last** words of
+every transcript in its score line, and the quotes are verified mechanically
+against the files — any mismatch voids that judge's line, and voided lines get
+a remedial regrade. (Calibration found even a frontier-model judge silently
+crossing files without this; grounding took its sabotage-detection from 58% to
+100%. A later run showed first-words-only grounding is insufficient when files
+share identical openings — quote both ends. File-crossing risk grows with
+batch size; for large sets, grade one file at a time or in small batches.)
 
 **Reading the result.**
 - B ≥ A on-target, B > A on transfer and traps, B ≈ ∅ out-of-scope → the
