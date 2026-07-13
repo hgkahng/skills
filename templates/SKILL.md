@@ -1,6 +1,6 @@
 ---
 name: skill-name
-description: One or two sentences covering BOTH what this skill does AND when to use it. This text is the only thing the agent sees when deciding whether to load the skill, so lead with the trigger. Include concrete trigger phrases the user might say. Max 1024 chars; lowercase-hyphenated name, max 64 chars, no "claude"/"anthropic".
+description: "One or two sentences covering BOTH what this skill does AND when to use it. This text is the only thing the agent sees when deciding whether to load the skill, so lead with the trigger. Include concrete trigger phrases the user might say. Keep the value wrapped in double quotes with single quotes inside — an unquoted ': ' breaks YAML parsers. Max 1024 chars; lowercase-hyphenated name, max 64 chars, no 'claude'/'anthropic'."
 ---
 
 # Skill Name

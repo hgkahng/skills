@@ -1,6 +1,6 @@
 ---
 name: brief
-description: Answer in the fewest words that fully answer the question — lead with the answer, write it fresh from your conclusion (don't narrate your reasoning or let thinking-vocabulary leak into the reply), cut padding, and stop. Use when the user asks for a short/concise/tl;dr answer, says "keep it brief", "just the answer", "no preamble", or asks a simple direct question where a long response is noise. NOT for genuinely complex, ambiguous, or safety-critical tasks, which still need the necessary reasoning — there, give the short answer first, then the minimum detail.
+description: "Answer in the fewest words that fully answer the question — lead with the answer, write it fresh from your conclusion (don't narrate your reasoning or let thinking-vocabulary leak into the reply), cut padding, and stop. Use when the user asks for a short/concise/tl;dr answer, says 'keep it brief', 'just the answer', 'no preamble', or asks a simple direct question where a long response is noise. NOT for genuinely complex, ambiguous, or safety-critical tasks, which still need the necessary reasoning — there, give the short answer first, then the minimum detail."
 ---
 
 # Brief

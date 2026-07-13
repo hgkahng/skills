@@ -24,7 +24,9 @@ bin/sync.sh                 symlinks skills into each agent's skills dir
   words "claude"/"anthropic".
 - `description`: the single most important field — it's all an agent sees when
   deciding to load the skill. State **what it does and when to use it**, with
-  concrete trigger phrases. ≤1024 chars.
+  concrete trigger phrases. ≤1024 chars. **Always wrap the value in double
+  quotes** and use single quotes inside — an unquoted `: ` in the value is
+  invalid YAML (breaks GitHub's preview and strict loaders).
 - **Progressive disclosure:** keep `SKILL.md` short; move long details into
   `references/` and deterministic work into `scripts/`.
 - Prefer scripts to be POSIX/bash-portable (works on macOS and Linux) and to
