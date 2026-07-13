@@ -22,6 +22,28 @@ Already part of the method, listed here as the first eval gate:
 
 A principle failing any of these is not ready for the A/B.
 
+## Validate the harness before trusting its verdict
+
+An unvalidated eval validates nothing. Before reading the A/B result, the
+harness itself must pass four gates:
+
+1. **Control arms.** Alongside A and B, run a known-bad arm (instructions that
+   obviously violate the intent) and, when feasible, a known-good hand-written
+   one. The harness must separate controls decisively; a judge that can't tell
+   sabotage from gold can't tell A from B. Control failure invalidates the run.
+2. **Judge agreement.** Use ≥2 blind judges per transcript. Low agreement means
+   the rubric is ambiguous — revise the rubric and rerun; never average over
+   confusion.
+3. **Bias mitigations by construction.** LLM judges favor longer answers, the
+   first option shown, and their own model family. Therefore: score each
+   transcript independently against the rubric (no side-by-side comparison),
+   randomize presentation order, strip arm labels, and prefer cross-vendor
+   judges (council `cli`/`openrouter` backends). Same-family judges make the
+   result directional, not confirmatory — say so in the read-out.
+4. **Human spot-check.** The intent belongs to the user, so the user is ground
+   truth: they blind-grade a sample (~5 transcripts) and judge–human agreement
+   is the harness's validity score. Report it with the verdict.
+
 ## A/B protocol
 
 **Arms.** Same behavioral goal, two instruction sets:
