@@ -75,3 +75,8 @@ Record the two agreement numbers at the bottom of this file and commit.
 - Agreement vs judge1 (opus): __ / 25
 - Agreement vs judge2 (sonnet): __ / 25
 - G4 verdict: pass / fail
+
+> A **proxy run** (blind model graders, not the human) is recorded in
+> [proxy-grade.md](proxy-grade.md): 23/25 vs each judge, one verdict-relevant
+> disagreement on U10 R5. The grid above remains open for the human grade —
+> U10 R5 is the one cell where it carries unique information.
