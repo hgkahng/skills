@@ -1,0 +1,28 @@
+id	arm	prompt	judge1_opus	judge2_sonnet	note
+U01	B	T2	1,1,1,1,1	1,1,1,1,1	j2 = remedial (original voided: crossed with U12)
+U02	N	A1	1,1,1,1,1	1,1,1,1,1	
+U03	A	O1	1,1,1,1,1	1,1,1,1,1	
+U04	B	A3	1,1,1,1,1	1,0,1,0,1	R2/R4 disagreement (recap? prod-snapshot caveat?)
+U05	N	T3	0,0,1,1,1	0,0,1,1,1	meta preamble + closing offer
+U06	A	T1	1,1,1,1,1	1,1,1,1,1	
+U07	B	O2	1,1,1,1,1	1,1,1,1,1	
+U08	A	A2	1,1,1,1,1	1,1,1,1,1	
+U09	N	O3	0,0,1,1,1	0,0,1,1,1	j2 = remedial (original voided: crossed with U16)
+U10	A	A3	1,1,1,1,0	1,1,1,1,0	R5 fail BOTH judges: word cap truncated depth request
+U11	B	O1	1,1,1,1,1	1,1,1,1,1	
+U12	N	T2	1,0,0,1,1	1,0,0,1,1	j2 = remedial; narrated authoring choices
+U13	A	T3	1,1,1,1,1	1,1,1,1,1	
+U14	B	A1	1,1,1,1,1	1,1,1,0,1	R4 disagreement (CSRF caveat)
+U15	N	O2	1,0,1,1,1	1,0,1,1,1	bottom-line recap
+U16	A	O3	1,1,1,1,1	1,1,1,1,1	j2 = remedial
+U17	B	T1	1,1,1,1,1	1,1,1,1,1	
+U18	N	A2	1,1,1,1,1	1,1,1,1,1	
+U19	A	O2	1,1,1,1,1	1,1,1,1,1	
+U20	B	T3	1,1,1,1,1	1,1,1,1,1	
+U21	N	O1	1,1,1,1,1	1,1,1,1,1	
+U22	A	A1	1,0,1,1,1	1,0,1,1,1	"In short:" recap despite "In summary" ban — letter compliance
+U23	B	A2	1,1,1,1,1	1,1,1,1,1	
+U24	N	T1	0,0,0,1,1	0,0,0,1,1	meta preamble, alternative, choice notes
+U25	A	T2	1,1,1,1,1	1,1,1,0,1	R4 disagreement (undocumented 10s timeout)
+U26	B	O3	1,1,1,1,1	1,1,1,1,1	
+U27	N	A3	1,0,1,1,1	1,0,1,1,1	closing full-recap

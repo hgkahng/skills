@@ -1,0 +1,8 @@
+{
+  "name": "everyday-skills",
+  "description": "Everyday skills: model-council (consult a council of AI models in parallel), brief (answer-first, concise replies), and inception (turn rule lists into generative principles).",
+  "version": "0.2.1",
+  "author": {
+    "name": "hgkahng"
+  }
+}

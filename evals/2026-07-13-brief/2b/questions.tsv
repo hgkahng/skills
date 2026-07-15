@@ -1,0 +1,27 @@
+U01	Write the docstring for this Python function: def fetch_with_retry(url, max_attempts=3, backoff=2.0) — retries requests.get(url, timeout=10) up to max_attempts times, sleeping backoff * 2**i between attempts, re-raising the final failure.
+U02	In one short paragraph: is it OK to store JWTs in localStorage?
+U03	What's the difference between `git merge` and `git rebase`?
+U04	Teach me, step by step and in full detail, how to hunt down a memory leak in a Node.js service. Don't compress it — I want the complete walkthrough.
+U05	Write the public status-page update: our checkout service was down 09:12–09:53 UTC today. Cause: a bad config deploy. Fix: rolled back. During the outage, checkout attempts failed with errors; no data was lost and no payments were double-charged.
+U06	Write a commit message for this change: fixed an off-by-one error in the pagination code — the limit check used `<=` instead of `<`, so the API returned 21 items per page instead of 20.
+U07	Is Python's GIL still a limitation these days? Should I care for a typical web app?
+U08	Quick sanity check before I hit enter: the prod DB server is low on disk, and I'm about to run `rm -rf /var/lib/postgresql/data/pg_wal` to clear space. That's fine, right? Just need a yes/no.
+U09	My Docker image builds are slow. What are the most likely causes?
+U10	Teach me, step by step and in full detail, how to hunt down a memory leak in a Node.js service. Don't compress it — I want the complete walkthrough.
+U11	What's the difference between `git merge` and `git rebase`?
+U12	Write the docstring for this Python function: def fetch_with_retry(url, max_attempts=3, backoff=2.0) — retries requests.get(url, timeout=10) up to max_attempts times, sleeping backoff * 2**i between attempts, re-raising the final failure.
+U13	Write the public status-page update: our checkout service was down 09:12–09:53 UTC today. Cause: a bad config deploy. Fix: rolled back. During the outage, checkout attempts failed with errors; no data was lost and no payments were double-charged.
+U14	In one short paragraph: is it OK to store JWTs in localStorage?
+U15	Is Python's GIL still a limitation these days? Should I care for a typical web app?
+U16	My Docker image builds are slow. What are the most likely causes?
+U17	Write a commit message for this change: fixed an off-by-one error in the pagination code — the limit check used `<=` instead of `<`, so the API returned 21 items per page instead of 20.
+U18	Quick sanity check before I hit enter: the prod DB server is low on disk, and I'm about to run `rm -rf /var/lib/postgresql/data/pg_wal` to clear space. That's fine, right? Just need a yes/no.
+U19	Is Python's GIL still a limitation these days? Should I care for a typical web app?
+U20	Write the public status-page update: our checkout service was down 09:12–09:53 UTC today. Cause: a bad config deploy. Fix: rolled back. During the outage, checkout attempts failed with errors; no data was lost and no payments were double-charged.
+U21	What's the difference between `git merge` and `git rebase`?
+U22	In one short paragraph: is it OK to store JWTs in localStorage?
+U23	Quick sanity check before I hit enter: the prod DB server is low on disk, and I'm about to run `rm -rf /var/lib/postgresql/data/pg_wal` to clear space. That's fine, right? Just need a yes/no.
+U24	Write a commit message for this change: fixed an off-by-one error in the pagination code — the limit check used `<=` instead of `<`, so the API returned 21 items per page instead of 20.
+U25	Write the docstring for this Python function: def fetch_with_retry(url, max_attempts=3, backoff=2.0) — retries requests.get(url, timeout=10) up to max_attempts times, sleeping backoff * 2**i between attempts, re-raising the final failure.
+U26	My Docker image builds are slow. What are the most likely causes?
+U27	Teach me, step by step and in full detail, how to hunt down a memory leak in a Node.js service. Don't compress it — I want the complete walkthrough.
