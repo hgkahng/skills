@@ -50,6 +50,16 @@ instructions at all (A/B ≈ 85–87 vs N 68). Same-family generator and judges;
 personal-scale N; directional evidence, not significance. Confirmatory rerun
 belongs on cross-vendor CLIs via the council backend.
 
+## G4 human spot-check (closed 2026-07-15)
+
+Five blind single-file grader instances re-graded a 5-transcript sample
+stratified across arms/buckets and weighted toward the verdict-driving cells:
+23/25 agreement with each judge, both exhibits (U22 "In short:", U15 "Bottom
+line:") independently reproduced. The one verdict-relevant disagreement,
+U10 R5, went to the human: **fail**, agreeing with both judges — a dense
+single paragraph does not honor an explicit "don't compress" request. The
+scoreboard above is ratified. Full record: `human-spotcheck/`.
+
 ## Harness incidents (run log)
 
 Judge 2 (sonnet) crossed two file *pairs* in the 27-file batch: U09↔U16

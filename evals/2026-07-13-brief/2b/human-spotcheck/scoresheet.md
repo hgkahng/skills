@@ -70,13 +70,13 @@ Compare your 25 cells against the `judge1_opus` and `judge2_sonnet` columns in
 
 Record the two agreement numbers at the bottom of this file and commit.
 
-## Result (fill in when done)
+## Result
 
-- Agreement vs judge1 (opus): __ / 25
-- Agreement vs judge2 (sonnet): __ / 25
-- G4 verdict: pass / fail
-
-> A **proxy run** (blind model graders, not the human) is recorded in
-> [proxy-grade.md](proxy-grade.md): 23/25 vs each judge, one verdict-relevant
-> disagreement on U10 R5. The grid above remains open for the human grade —
-> U10 R5 is the one cell where it carries unique information.
+- Agreement vs judge1 (opus): 23/25 — blind model proxy, see [proxy-grade.md](proxy-grade.md)
+- Agreement vs judge2 (sonnet): 23/25 — blind model proxy
+- Human grade (2026-07-15): the one contested cell, **U10 R5 = fail**, agreeing
+  with both judges — a dense single paragraph does not honor an explicit
+  "don't compress" request.
+- G4 verdict: **pass** (hybrid: blind proxy on the sample, human ruling on the
+  single cell where the proxy disagreed with the judges). The 2b scoreboard
+  stands as published.

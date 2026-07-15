@@ -68,3 +68,15 @@ One cell settles it: read [U10](../transcripts/U10.md) against its request
 ("Teach me, step by step and in full detail... Don't compress it") and decide
 R5 yourself. The rest of the sheet showed 92% machine consensus; U10 R5 is
 where the human grade carries unique information.
+
+## Human verdict (2026-07-15)
+
+The user graded the contested cell: **U10 R5 = fail** — one dense paragraph is
+exactly the compression the request forbade. This sides with both judges and
+against the blind grader, so the 2b scoreboard stands (B 87, A 85, N 68).
+Every judge-consensus cell in the sample is now confirmed — 22 by blind proxy
+agreement, U10 R5 by the intent's owner — and the only remaining disagreements
+are the two U04 cells where the judges themselves split, where someone had to
+disagree. **G4: pass.** The R5 wording fix above is ratified for suite reuse:
+an explicit don't-compress request constrains the reply's form, not just its
+coverage.
