@@ -1,5 +1,5 @@
 ---
-name: ml-code-writer
+name: write-ml-code
 description: "Write Python code for ML research — training scripts, data pipelines, utility modules, and experiment infrastructure. Use when the user says 'write code for', 'implement', 'create a script', 'build a pipeline', 'code this up', or similar requests to produce ML code from scratch or substantially extend existing code. Also use when the user provides review feedback and asks to revise or rewrite code. Covers PyTorch, numpy, pandas, scikit-learn, and common ML tooling."
 ---
 
@@ -17,7 +17,7 @@ Write clean, minimal ML research code. Produce code a careful researcher would t
 
 ## Simplicity & Elegance
 
-The same standards as ml-code-review — internalized as writing discipline, not just review criteria.
+The same standards as review-ml-code — internalized as writing discipline, not just review criteria.
 
 <!-- Simplicity principles taken verbatim from multica-ai/andrej-karpathy-skills (MIT),
      which distilled them from Andrej Karpathy's observations on LLM coding failures. -->
