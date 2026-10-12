@@ -1,0 +1,5 @@
+W29	A process is a running program. A thread	Use threads when the work needs to share data quickly.	111111	-
+W15	A database index is a separate, sorted copy	or sort by often, and avoid indexing everything.	001111	Q1 unexplained terms (logarithmic time, root, leaf, scan); Q2 "jump straight to"
+W25	A database index is a separate, sorted data	or help design indexes for a specific query.	001111	Q1 O(log n), cardinality, GIN/GiST, planner, composite unexplained; Q2 "jump straight there", "bouncing through"
+W21	Python is telling you it looked for a	from the selector at pytorch.org (under "Get Started").	101111	Q1 virtual environments, Jupyter, IDEs, build, GPU unexplained
+W31	A p-value is a number that tells you	of evidence and shouldn't be the whole story.	001111	Q1 effect size, confidence interval, replicate unexplained; Q2 "law of nature", "fluke", "whole story"

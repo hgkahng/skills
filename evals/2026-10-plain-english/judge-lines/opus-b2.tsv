@@ -1,0 +1,6 @@
+W32	This error means Python can't find a package	command on pytorch.org gives you the right one.	011111	'virtual environment' and 'GPU' used without explanation
+W17	A race condition is a bug where a	I can show a concrete example and fix.	011111	threads, mutexes, critical section, atomic, compare-and-swap, idempotent, undefined behavior left unexplained
+W15	A database index is a separate, sorted copy	or sort by often, and avoid indexing everything.	011111	nodes/root/leaf, 'logarithmic vs linear time', 'join' left unexplained
+W07	Your model is overfitting. It has learned the	to which fix is most likely to help.	011111	dropout, weight decay, L1/L2 penalty, validation loss named without explanation
+W14	A p-value is the probability of seeing data	is calculated or how to choose a threshold.	111111	-
+W21	Python is telling you it looked for a	from the selector at pytorch.org (under "Get Started").	011111	virtual environments, Jupyter, IDEs, GPU, 'build' used without explanation

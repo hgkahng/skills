@@ -1,0 +1,6 @@
+V23	Flask's strict slashes: a route defined without a	(308) to `/api/items/`. - Accept both: `@app.route('/api/items', strict_slashes=False)`.	111111	-
+V12	Because typing updates state, and React re-renders a	the heavy child in `React.memo`. Want the why?	011111	R2: closing offer "Want the why?"
+V29	Hunt a Node.js leak by confirming it, capturing	patterns, such as the event-listener or unbounded-cache leak?	011111	R2: closing recap checklist and closing offer
+V02	No, don't. Deleting `pg_wal` removes the write-ahead	for a stuck replication slot or failing `archive_command`.	101110	R2/R6: unsolicited alternatives and WAL tangent despite yes/no request
+V16	Flask treats the two URLs differently depending on how	```python @app.route('/api/items', strict_slashes=False) def items(): return jsonify(ITEMS) ```	011111	R1: first sentence is preamble, answer comes second
+V09	The build failed because `src/db/connect.test.js` threw "Environment variable	notices and slow test were not the cause.	111110	R6: rules-out sentence is unneeded

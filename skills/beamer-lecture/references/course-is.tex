@@ -1,0 +1,58 @@
+% course-is.tex — DDM 676 option pack (template)
+\usepackage{colortbl}
+\usepackage{array}
+\usepackage[skins]{tcolorbox}
+\usetikzlibrary{arrows.meta, calc, positioning, decorations.pathreplacing,
+                shapes.geometric, shapes.symbols, shadows.blur}
+
+\setbeamersize{text margin left=0.5cm, text margin right=1.0cm}
+
+\definecolor{ntrl}{HTML}{1E293B}
+\definecolor{ngray}{HTML}{DBE3EE}
+\definecolor{ltbg}{HTML}{F1F5F9}
+\definecolor{acc}{HTML}{1E40AF}
+\definecolor{acc2}{HTML}{60A5FA}
+\definecolor{hilite}{HTML}{0E7490}
+\definecolor{warn}{HTML}{B45309}
+\definecolor{navblue}{HTML}{172554}
+\setbeamercolor{alerted text}{fg=acc}
+
+\newtcolorbox{findcallout}{%
+  enhanced, boxrule=0pt, frame hidden,
+  borderline west={2.5pt}{0pt}{acc},
+  colback=acc!7, arc=0pt, outer arc=0pt,
+  boxsep=0pt, left=8pt, right=6pt, top=4pt, bottom=4pt,
+  left skip=1em}
+\newtcolorbox{takeaway}{%
+  enhanced, boxrule=0pt, frame hidden,
+  borderline west={3pt}{0pt}{hilite},
+  colback=hilite!7, arc=0pt, outer arc=0pt,
+  boxsep=0pt, left=8pt, right=6pt, top=5pt, bottom=5pt}
+\newtcolorbox{riskcallout}{%
+  enhanced, boxrule=0pt, frame hidden,
+  borderline west={2.5pt}{0pt}{warn},
+  colback=warn!7, arc=0pt, outer arc=0pt,
+  boxsep=0pt, left=8pt, right=6pt, top=4pt, bottom=4pt}
+
+\tikzset{
+  rbox/.style={rectangle, rounded corners=4pt, draw=ntrl!70, fill=ngray,
+               minimum height=0.85cm, align=center, font=\small, inner sep=6pt,
+               line width=0.7pt},
+  abox/.style={rectangle, rounded corners=4pt, draw=ntrl!70, fill=acc!10,
+               minimum height=0.85cm, align=center, font=\small, inner sep=6pt,
+               line width=0.7pt},
+  gbox/.style={rectangle, rounded corners=4pt, draw=ntrl!70, fill=acc2!14,
+               minimum height=0.85cm, align=center, font=\small, inner sep=6pt,
+               line width=0.7pt},
+  activebox/.style={rectangle, rounded corners=4pt, draw=acc, fill=acc!18,
+                    minimum height=0.85cm, align=center, font=\small, inner sep=6pt,
+                    line width=1.2pt},
+  pill/.style={ellipse, draw=ntrl!70, fill=white,
+               minimum height=0.75cm, minimum width=1.5cm,
+               align=center, font=\small, inner sep=4pt, line width=0.7pt},
+  adiam/.style={diamond, draw=ntrl!70, fill=acc!10, aspect=2,
+                minimum width=1.2cm, align=center, font=\scriptsize,
+                inner sep=2pt, line width=0.7pt},
+  arr/.style={-{Stealth[length=5pt]}, ntrl!80, line width=0.8pt},
+  arrdash/.style={-{Stealth[length=5pt]}, ntrl!45, line width=0.7pt, dashed},
+}

@@ -1,0 +1,5 @@
+W32	This error means Python can't find a package	command on pytorch.org gives you the right one.	011111	pip, virtual environment, GPU not explained
+W09	Your model is memorizing the training data instead	I can point to the most likely cause.	011111	parameters, dropout, weight decay, epoch, cross-validation, regularization terms unexplained
+W24	Python can't find PyTorch because it isn't installed	the command for your CUDA version at pytorch.org/get-started/locally.	011111	virtual environment, conda, interpreter, GPU, CUDA unexplained
+W01	A process is a running program with its	details vary by operating system and language runtime.	001111	many unexplained terms (heap, IPC, GIL, race conditions); idioms like "take down", "get around"
+W08	A process is a running program with its	threads when tasks need to share data cheaply.	001111	pipes, sockets, locks, race conditions unexplained; idioms "take down", "heavier"

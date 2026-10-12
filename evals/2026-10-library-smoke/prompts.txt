@@ -1,0 +1,22 @@
+P01	Write a PyTorch training loop for fine-tuning ResNet on CIFAR-10 with checkpointing
+P02	Can you review this training loop? The loss goes NaN after epoch 3.
+P03	I want to test whether my new regularizer helps. What baselines should I use?
+P04	Draw a diagram of a transformer encoder block for my paper.
+P05	Add a slide on gradient descent to my ML lecture deck.
+P06	Rewrite this function in my style: def f(xs):\n r=[]\n for x in xs:\n  r.append(x*2)\n return r
+P07	Before you start on this refactor, ask me what I actually want out of it.
+P08	Ask the council: should we use Postgres or DynamoDB for this?
+P09	Keep it short: what's the difference between TCP and UDP?
+P10	Here are my 8 rules for how the agent should write commit messages. Can you turn them into one underlying principle?
+P11	Fix this LaTeX error in my Beamer frame: Undefined control sequence.
+P12	What is the capital of France?
+P13	Make a figure showing a 3-layer MLP for my slides.
+P14	Is my experiment design sound? I'm comparing three methods using a single seed.
+P15	Implement a dataloader for a CSV of tabular features.
+P16	Clean up this Python script so it matches how I like to write code.
+P17	Get a second opinion from other models on this API design.
+P18	Help me plan my sister's birthday party.
+P19	Debug this: my CNN accuracy is stuck at 10%.
+P20	Just the answer, no preamble: how many bytes are in a MiB?
+P21	Write a Python function that flattens a nested list.
+P22	Make me a PowerPoint deck on bias-variance for my ML class.

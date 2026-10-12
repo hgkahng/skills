@@ -1,0 +1,6 @@
+V31	That's normal React behavior, not a bug. In	component, I can point to exactly what's re-rendering.	001111	first sentence doesn't say why (state change); closing offer to review code is padding
+V20	The YAML to TOML config migration is done	typo on line 40, which I also left.	101111	unsolicited follow-up suggestions (easy to add a fallback; remove import in a small follow-up)
+V21	This comes down to how Flask treats trailing	the URLs you publish and in your docs.	001110	vague opening sentence; closing consistency advice is padding; three alternative fixes plus the curl/redirect detail go beyond the question
+V16	Flask treats the two URLs differently depending on	```python @app.route('/api/items', strict_slashes=False) def items(): return jsonify(ITEMS) ```	011111	first sentence is vague framing; the actual cause comes in sentence two
+V17	Mostly no: for a typical web app the	don't need it for a typical web app.	111111	-
+V26	Generally it's not recommended. Any JavaScript running on	memory and refresh it via a cookie-backed endpoint.	111111	-

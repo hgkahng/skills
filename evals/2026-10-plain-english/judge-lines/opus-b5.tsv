@@ -1,0 +1,5 @@
+W30	Idempotent means that doing something many times has the	the work. It just returns the first result.	111111	-
+W27	**Idempotent** means that doing an operation more than	the original result instead of repeating the action.	011111	HTTP, GET/PUT/DELETE/POST and client/server never explained
+W02	Because with Adam, L2 regularization and weight decay	a short run, you may see little difference.	111111	-
+W22	A database index works like the index at	sort by often, and not on every column.	111111	-
+W05	Idempotent means that doing something once has the	first result instead of doing the work again.	011111	load balancers, libraries, side effects, HTTP methods never explained

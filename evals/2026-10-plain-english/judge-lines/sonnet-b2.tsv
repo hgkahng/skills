@@ -1,0 +1,6 @@
+W23	A database index works like the index at	sort by, and you leave the rest alone.	011111	Q1: "B-tree" and "join" are never explained
+W07	Your model is overfitting. It has learned the	to which fix is most likely to help.	011111	Q1: dropout, weight decay, L1/L2 and validation loss are not explained
+W20	A gap that large (99% train vs. 70%	look like, I can give more specific advice.	001111	Q1: many unexplained terms (regularization, k-NN, batch norm, F1); Q2: "sanity checks" and "fine on its own terms" are idioms
+W13	Your model is overfitting: it has memorized the	I can suggest which fix to try first.	001111	Q1: regularization, weight decay, dropout, augment and distribution are unexplained; Q2: "close the gap" and "carry over" are figures of speech
+W17	A race condition is a bug where a	I can show a concrete example and fix.	011111	Q1: thread, mutex, TOCTOU, idempotent, compare-and-swap and undefined behavior are not explained
+W10	A race condition is a bug where the	read-and-update a single step that can't be split.	111111	-

@@ -1,0 +1,6 @@
+V06	No, don't run it. `pg_wal` holds the write-ahead	walk you through checking that if you want.	101111	Ends with an unsolicited offer to help further
+V13	`src/db/connect.test.js` failed because the `DATABASE_URL` environment variable isn't	CI, so `npm test` exited with code 1.	111111	-
+V33	For a typical web app, mostly no. The	more specifically whether anything would be a concern.	101110	Closing offer is padding; side alternatives and facts like subinterpreters, the job-queue list and other-language services
+V36	That's normal: typing in the input changes state,	the page doesn't re-render. Want more on that?	101111	Ends with an unsolicited "Want more on that?" offer
+V30	Good news: this is normal React behavior, and	what is re-rendering and whether it's worth changing.	001110	Opens with "Good news" and no cause; closing offer; unneeded extra fixes (memo/useMemo/useDeferredValue) and StrictMode tangent
+V29	Hunt a Node.js leak by confirming it, capturing	patterns, such as the event-listener or unbounded-cache leak?	101111	Quick-checklist closing recap plus an unsolicited offer at the end

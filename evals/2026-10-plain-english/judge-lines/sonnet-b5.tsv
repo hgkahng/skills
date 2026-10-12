@@ -1,0 +1,5 @@
+W22	A database index works like the index at	sort by often, and not on every column.	011111	Q1: "pointer", "B-tree" and "writes" are not explained in plain words
+W04	A race condition is a bug that happens	avoid sharing the data in the first place.	101111	Q2: "shows up" and "lines up wrong" are figures of speech
+W30	Idempotent means that doing something many times has	the work. It just returns the first result.	101111	Q2: "went through" and "connection drops" are idioms
+W05	Idempotent means that doing something once has the	first result instead of doing the work again.	001111	Q1: "load balancers", "side effects" and "clients" are unexplained; Q2: "went through" and "flips the state" are idioms
+W28	A p-value tells you how surprising your results	how likely that story is to be true.	101111	Q2: "going on", "law of nature" and "story" are figures of speech

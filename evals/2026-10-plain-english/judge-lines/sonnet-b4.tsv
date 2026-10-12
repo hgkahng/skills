@@ -1,0 +1,5 @@
+W02	Because with Adam, L2 regularization and weight decay	a short run, you may see little difference.	111111	-
+W14	A p-value is the probability of seeing data	is calculated or how to choose a threshold.	111111	-
+W19	**Why decouple.** With Adam plus L2, you add	setup, not assuming the theory fully explains it.	001111	Unexplained terms (preconditioner, reparameterization, scale-invariant); figurative phrases ("story", "fold into", "in any clean sense")
+W03	## What the error means `ModuleNotFoundError: No module named	I can point you to the exact fix.	001111	Unexplained terms (virtualenv, conda, interpreter, kernel, wheels, CUDA); figurative "shadow", "you're set"
+W18	An operation is **idempotent** if doing it several	be fully sure whether a request went through.	001111	Unexplained terms (load balancers, queues, at-least-once, UUID, header); idioms "went through", "a lot of"

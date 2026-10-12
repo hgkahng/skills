@@ -1,0 +1,6 @@
+W28	A p-value tells you how surprising your results	how likely that story is to be true.	110111	"a habit, not a law of nature" and "story" are figures of speech
+W31	A p-value is a number that tells you	of evidence and shouldn't be the whole story.	001111	effect size, confidence interval, replicate, sample left unexplained; idioms "law of nature", "fluke", "the whole story"
+W06	A p-value tells you how surprising your results	a small p-value if you have enough data.	111111	-
+W03	## What the error means `ModuleNotFoundError: No module	I can point you to the exact fix.	000111	wheels, CUDA, kernel, virtualenv, shadow unexplained; idioms "you're set", "shadow", "live under"; conda -c pytorch channel is deprecated/outdated advice
+W11	A process is a running program. A thread	memory, faster to start, easier to get wrong.	101111	figurative "heavier to start", "take down the rest", "live inside"
+W10	A race condition is a bug where the	read-and-update a single step that can't be split.	111111	-
