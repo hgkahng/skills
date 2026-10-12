@@ -1,0 +1,73 @@
+% preamble-base.tex — shared spine (template; see preamble-architecture.md)
+\documentclass[aspectratio=169,14pt]{beamer}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{booktabs}
+\usepackage{subcaption}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor={black},
+    citecolor={blue!50!black},
+    urlcolor={blue},
+}
+
+\usepackage{mymacro}
+
+% Used by mymacro.sty's supframe (green frame title). Same value as Metropolis' mLightGreen.
+\definecolor{mLightGreen}{HTML}{14B03D}
+
+\usepackage{xcolor}
+\usepackage{minted}
+\usemintedstyle{default}
+
+\renewcommand{\theFancyVerbLine}{%
+    \sffamily \textcolor[rgb]{0.5,0.5,1.0}{\scriptsize \oldstylenums{\arabic{FancyVerbLine}}}%
+}
+
+\newminted{python}{frame=single,
+                   framesep=2mm,
+                   framerule=0.4pt,
+                   baselinestretch=1.0,
+                   bgcolor=white,
+                   fontsize=\footnotesize,
+                   autogobble=true,
+                   linenos=true,
+                   python3=true,
+                   xleftmargin=1em,
+                   xrightmargin=1em,
+                   texcomments=true,}
+
+\newcommand{\betweenminted}[1]{%
+  \par\vspace{-\medskipamount}\vspace{-1\baselineskip}%
+  \vspace{#1}%
+}
+
+\usetheme{Boadilla}
+\useoutertheme{default}
+\useinnertheme{circles}
+
+\usefonttheme{professionalfonts}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{frametitle continuation}[from second][(contd.)]
+\setbeamertemplate{caption}[numbered]
+\addtobeamertemplate{footline}{\vskip3ex}{}
+
+\newcommand{\sectionslide}[2]{%
+\begin{frame}[plain,c]
+    \begin{center}
+        \Large #1\\[0.4em]
+        {\color{gray}\rule{4cm}{0.4pt}}\\[0.4em]
+        {\small\color{gray}#2}
+    \end{center}
+\end{frame}%
+}
+
+\author[Korea University]{Hyungu Kahng}
+\institute[]{%
+    Assistant Professor\\%
+    Division of Digital Business Management\\%
+    Korea University}
