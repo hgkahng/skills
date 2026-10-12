@@ -67,8 +67,9 @@ Agents only read `ME.md` if something points to it. After saving, propose adding
 without imports, the line `Read ME.md for the user's preferences.` in
 `AGENTS.md`. Show the edit and apply it only after a yes.
 
-Also mention once: `ME.md` is personal and will be committed with the project
-unless it's added to `.gitignore` — let the user decide.
+`ME.md` is personal taste, and a project-level file gets committed with the
+project. Also propose adding `ME.md` to `.gitignore` (create the file if
+needed) and apply it only after a yes.
 
 ## Pitfalls
 
