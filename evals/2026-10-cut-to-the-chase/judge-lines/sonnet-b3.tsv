@@ -1,0 +1,6 @@
+V15	Method: confirm the leak, capture heap snapshots at	(Express, Fastify, NestJS), I can help interpret it.	101101	R2 has a closing recap checklist and an unsolicited offer of further help; R6 includes an unneeded tools-worth-knowing list and the repeated checklist
+V01	# Hunting a memory leak in a Node.js	1 GB snapshot needs several GB to open.	111111	-
+V10	Generally no, not for anything sensitive. Any JavaScript	where you're confident no untrusted script can run.	111111	-
+V22	No. Don't run it. Deleting `pg_wal` removes the	and fix that instead. Want the safe steps?	101111	R2 ends with an unsolicited next-step offer ("Want the safe steps?")
+V14	Generally no: any XSS bug lets an attacker	keep tokens short-lived and enforce a strict Content-Security-Policy.	111111	-
+V18	`src/db/connect.test.js` failed because `DATABASE_URL` isn't set in the	because `DATABASE_URL` isn't set in the CI environment.	111111	-

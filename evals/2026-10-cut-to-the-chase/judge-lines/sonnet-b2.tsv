@@ -1,0 +1,6 @@
+V13	`src/db/connect.test.js` failed because the `DATABASE_URL` environment variable isn't	CI, so `npm test` exited with code 1.	111111	-
+V25	Mostly no, not for a typical web app.	on it yet. Want the details on free-threading?	101111	R2: closing offer of unsolicited next step
+V30	Good news: this is normal React behavior, and	what is re-rendering and whether it's worth changing.	001110	R1: opens with reassurance, not the cause; R2: closing offer to review code; R6: optimization fixes, memo/useMemo, and StrictMode tangents
+V07	`git reset --soft HEAD~1` This undoes the commit and	that undoes the old one without rewriting history.	111110	R6: --mixed/--hard alternatives are unneeded for the question
+V27	The YAML-to-TOML migration is done: 14 files changed,	at the TOML file or deploys will break.	111111	-
+V05	# Hunting Down a Memory Leak in a	to start with and what to look for.	001110	R1: opens with title and framing intro; R2: closing checklist recap and closing offer; R6: mitigation and prevention steps beyond hunting the leak

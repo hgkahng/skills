@@ -1,0 +1,6 @@
+V09	The build failed because `src/db/connect.test.js` threw "Environment variable	notices and slow test were not the cause.	111110	asked for one line; adds an unneeded sentence ruling out non-causes
+V19	Flask treats `/api/items` (no trailing slash) as an exact	accept both without a redirect, use `@app.route('/api/items', strict_slashes=False)`.	111110	offers a second, alternative fix beyond the why that was asked
+V01	# Hunting a memory leak in a Node.js	1 GB snapshot needs several GB to open.	111111	-
+V34	YAML to TOML migration is done in this repo:	Want me to clean up those last two?	101110	ends with an unsolicited offer; retells the test failure that is already fixed
+V35	`git reset --soft HEAD~1` This undoes the commit and	pushed the commit, use `git revert HEAD` instead.	111111	-
+V28	For a typical web app, no, you don't	you don't need it for a web app.	111111	-

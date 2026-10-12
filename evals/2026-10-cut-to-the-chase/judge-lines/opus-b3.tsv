@@ -1,0 +1,6 @@
+V22	No. Don't run it. Deleting `pg_wal` removes the	and fix that instead. Want the safe steps?	101111	R2: ends with an unsolicited offer ('Want the safe steps?')
+V12	Because typing updates state, and React re-renders a	the heavy child in `React.memo`. Want the why?	101101	R2: ends with an unsolicited offer; R5: for a newcomer, 'state', useState and React.memo are never defined
+V11	It depends on whether you want to keep	can then recover with `git reset --hard <hash>`.	011110	R1: opens with a hedge, not the answer; R6: tangents (the --mixed note, the amend alternative, the reflog recovery)
+V23	Flask's strict slashes: a route defined without a	(308) to `/api/items/`. - Accept both: `@app.route('/api/items', strict_slashes=False)`.	111111	-
+V32	`src/db/connect.test.js` failed because `DATABASE_URL` isn't set in the	because `DATABASE_URL` isn't set in the CI environment.	111111	-
+V02	No, don't. Deleting `pg_wal` removes the write-ahead log,	for a stuck replication slot or failing `archive_command`.	111111	-
