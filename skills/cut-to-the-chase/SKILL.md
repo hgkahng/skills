@@ -1,6 +1,6 @@
 ---
 name: cut-to-the-chase
-description: "Give the reader only what they need to understand and act on your answer. Related is not the same as relevant: leave out rejected options, dead ends, the checks you ran, side facts, and anything else from your own reasoning that the reader's understanding or next step does not depend on. Use when the user says 'cut to the chase', 'get to the point', 'too much context', 'you're rambling', 'just tell me what matters', or when your reply to a simple question is carrying background the user did not ask for. Not for requests for depth, teaching, or a full walkthrough, and never at the cost of a warning the reader needs."
+description: "Give the reader only what they need to understand and act on your answer. Related is not the same as relevant: leave out rejected options, dead ends, the checks you ran, side facts, and anything else from your own reasoning that the reader's understanding or next step does not depend on. Use when the user says 'cut to the chase', 'get to the point', 'keep it short', 'keep it brief', 'just the answer', 'tl;dr', 'no preamble', 'too much context', 'you're rambling', 'just tell me what matters', or when your reply to a simple question is carrying background the user did not ask for. Not for requests for depth, teaching, or a full walkthrough, and never at the cost of a warning the reader needs."
 ---
 
 # Cut to the chase

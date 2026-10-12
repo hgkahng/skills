@@ -48,7 +48,7 @@ three target dirs cover all four agents.
 | Skill | What it does |
 |-------|--------------|
 | [`model-council`](skills/model-council/) | Ask a council of AI models one question in parallel — via host subagents, local CLIs, or OpenRouter — with recommended presets, random-forest prompt diversity, and three combine modes (synthesize / judge / critique). |
-| [`brief`](skills/brief/) | Enforce short, answer-first replies: commit, cut padding, offer depth on request. |
+| [`cut-to-the-chase`](skills/cut-to-the-chase/) | Give the reader only what they need to understand and act: no reasoning residue, rejected options, or related-but-unneeded context. Replaced `brief` after an A/B (see `evals/2026-10-cut-to-the-chase/`). |
 | [`inception`](skills/inception/) | Turn rule lists for agents into the higher-level principle they derive from — overt, true, positively framed — with a built-in evaluation protocol. |
 | [`align`](skills/align/) | Run a short question-and-answer dialogue to pin down intent and constraints before starting a task, then recap and proceed. |
 | [`python-style`](skills/python-style/) | Write or rewrite Python to one personal style: comprehensions, unpacking, qualified imports, typed signatures, methods over free functions. |
