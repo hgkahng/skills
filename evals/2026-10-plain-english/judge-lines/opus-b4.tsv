@@ -1,0 +1,5 @@
+W29	A process is a running program. A thread	when the work needs to share data quickly.	111111	-
+W20	A gap that large (99% train vs. 70%	look like, I can give more specific advice.	001111	Q1 regularization, dropout, batch norm, L1/L2, epoch, k-NN, F1 and other terms are never explained; Q2 idioms like "sanity checks" and "on its own terms"
+W24	Python can't find PyTorch because it isn't installed	the command for your CUDA version at pytorch.org/get-started/locally.	101111	Q1 environment, virtual environment, conda, interpreter, GPU build and CUDA are never explained
+W08	A process is a running program with its	threads when tasks need to share data cheaply.	101111	Q1 pipes, sockets, locks, race conditions and "unit of execution" are never explained
+W18	An operation is **idempotent** if doing it several	be fully sure whether a request went through.	101111	Q1 load balancers, queues, at-least-once, UUID, header, distributed systems and side effects are never explained

@@ -1,0 +1,6 @@
+W27	**Idempotent** means that doing an operation more than	the original result instead of repeating the action.	111111	-
+W06	A p-value tells you how surprising your results	a small p-value if you have enough data.	101111	"a habit, not a law" is a figure of speech
+W11	A process is a running program. A thread	memory, faster to start, easier to get wrong.	111111	-
+W16	Adam rescales each parameter's update by a running	Loshchilov and Hutter, "Decoupled Weight Decay Regularization" (2019).	101111	"tangled together" and "never touches it" are figurative
+W26	**Why decouple:** With Adam plus L2, the penalty	also exempt biases and normalization parameters from decay.	101111	"doing real work" is an idiom
+W12	A race condition is a bug where a	is to avoid sharing the data at all.	011111	threads, lock, atomic operation and transaction are not explained

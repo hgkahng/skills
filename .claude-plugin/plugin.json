@@ -1,7 +1,7 @@
 {
   "name": "everyday-skills",
-  "description": "Everyday skills: model-council (consult a council of AI models in parallel), cut-to-the-chase (give the reader only what they need), inception (turn rule lists into principles), align (clarify intent before work), python-style, write-ml-code, review-ml-code, critique-ml-research, tikz-figure, and beamer-lecture.",
-  "version": "0.4.0",
+  "description": "Everyday skills: model-council (consult a council of AI models in parallel), cut-to-the-chase (give the reader only what they need), plain-english (common words, short sentences), inception (turn rule lists into principles), align (clarify intent before work), python-style, write-ml-code, review-ml-code, critique-ml-research, tikz-figure, and beamer-lecture.",
+  "version": "0.5.0",
   "author": {
     "name": "hgkahng"
   }
