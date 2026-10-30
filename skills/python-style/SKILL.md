@@ -3,108 +3,36 @@ name: python-style
 description: "Write or rewrite Python code to match the user's personal coding style preferences. Use this skill whenever the user asks to write, refactor, clean up, or review Python code for style — including requests like 'write this in my style', 'clean this up', 'rewrite this', 'does this match my preferences', or any Python code task where style and idiom matter. Also trigger when the user shares a snippet and asks for feedback on how it could be improved."
 ---
 
-# Python Style Skill
+# Python Style
 
-This skill encodes the user's personal Python style preferences, derived from direct input.
-Apply these preferences consistently when writing or rewriting Python code.
-When in doubt between two approaches, prefer the one that is more readable at a glance
-and requires fewer lines — but never sacrifice clarity for cleverness.
+The user's own Python preferences. The aim is code a competent reader understands line by line without comments, in as few lines as clarity allows. Never trade clarity for cleverness. When a preference doesn't settle a case, choose the more readable option and say so briefly.
 
----
+## Readable at a glance
 
-## Core Style Preferences
+- **Comprehensions** (list, dict, set, with inline `if`) over `.append()` loops, and over `map()`/`filter()`. Use an explicit loop when the body is complex or has side effects.
+- **Dicts:** a comprehension for a simple single pass, preferred over `dict(zip(...))`. When building across two sequences, use explicit nested `for` loops with assignment rather than a double-`for` comprehension.
+- **Unpacking** over indexing: `a, b = pair`, not `pair[0]`; `*rest` where it clarifies intent.
+- **Nested `if` over early return:** keep the main logic as the primary branch, not after a guard clause.
+- **Ternary** only for simple assignments; if either branch needs a second read, use a full `if`.
+- **Paths:** `pathlib.Path` with `/`; `os.path` only for legacy APIs that need strings.
+- **Short and idiomatic:** no ceremony or needless intermediate variables; use builtins and the stdlib rather than reimplementing them or adding a niche package for a few lines.
 
-### Iteration
-- **Prefer list/dict/set comprehensions** over explicit loops with `.append()`
-- Use comprehensions with inline conditions: `[f(x) for x in items if cond(x)]`
-- Prefer `[f(x) for x in items]` over `list(map(f, items))` — avoid `map()`/`filter()`
-- Exception: use an explicit loop when the body is complex or has side effects
+## Where every name and type comes from is visible
 
-### Unpacking
-- Always prefer tuple/iterable unpacking over index access: `a, b = pair` not `pair[0]`
-- Use `*rest` unpacking where it clarifies intent
+- **Imports:** `import module` and qualified names (`np.array`, `nn.Linear`), never `from module import name`. Aliases: `numpy as np`, `torch.nn as nn`, `pandas as pd`; plain `import torch`.
+- **Signatures:** annotate every argument and return type of any reusable function, with `T | None` (or `Optional[T]`) and lowercase generics (`list[T]`, `dict[K, V]`). Avoid `*args`/`**kwargs` except when wrapping another API, and type them if needed (`*args: int`). Throwaway scripts and one-liners can skip hints.
+- **Docstrings:** one line for short functions (`"""Does X and returns Y."""`); Google style with Args/Returns for longer ones when something is non-obvious; none that only restate the name.
 
-### Control flow
-- **Prefer nested `if` over early return** — keep the main logic as the primary branch,
-  not tucked after a guard clause
-- Use ternary for simple assignments: `x = val if cond else other`
-- Avoid ternary when either branch is complex enough to need reading twice
+## Logic lives with its data
 
-### Dict construction
-- Prefer dict comprehensions `{k: v for k, v in ...}` over `dict(zip(...))` for the
-  simple single-pass case
-- When building a dict across two sequences (nested iteration), use explicit nested
-  `for` loops with assignment — a double-`for` comprehension is harder to read
+- **Methods over standalone functions** by default. Module-level functions only for truly general utilities with no natural class home.
+- **`@classmethod`** for alternative constructors (`from_file`, `from_dict`, `from_config`); **`@staticmethod`** for helpers that belong to the class conceptually but need neither instance nor class. Deciding question: is it creating an instance?
+- **`@property`** for cheap, argument-free values that feel like state; a regular method when the computation is expensive or takes arguments.
+- **`@dataclass`** for simple data holders; a plain class with `__init__` when it needs custom logic or inheritance.
+- **Errors:** `raise ValueError`/`TypeError` for invalid input in library code the caller may catch; `assert` for internal invariants that should never fail.
 
-### Imports
-- Always use `import module` and qualify names (`np.array`, `nn.Linear`), not `from module import name`
-- Standard aliases: `numpy as np`, `torch.nn as nn`, `pandas as pd`, etc. (`import torch` needs no alias)
+## Applying it
 
-### Type hints
-- Always annotate function signatures: arguments and return type
-- Use `Optional[T]` / `T | None` for nullable args; use `list[T]`, `dict[K, V]` (lowercase, Python 3.9+)
-- Skip hints for throwaway scripts or one-liners; apply them for any reusable function
-
-### Docstrings
-- Short functions: one-line docstring `"""Does X and returns Y."""`
-- Longer functions: Google-style docstring with Args / Returns sections if non-obvious
-- No redundant docstrings that just restate the function name
-
-### Error handling
-- Use `raise ValueError(...)` / `raise TypeError(...)` for invalid inputs in library code
-- Use `assert` for internal invariants and debug checks (things that "should never happen")
-- Both are context-appropriate — choose based on whether the caller is expected to catch it
-
-### Computed attributes
-- Use `@property` for computed attributes that feel like state (no args, cheap to compute)
-- Use a regular method (`get_x()`) only when computation is expensive or takes arguments
-
-### Signatures
-- Always use explicit, fully typed signatures — avoid `*args`/`**kwargs` except when wrapping another API
-- If a function genuinely needs variadic args, type them: `*args: int`, `**kwargs: str`
-
-### Data containers
-- Use `@dataclass` for simple data-holding classes
-- Use a plain `class` with `__init__` when you need custom logic or inheritance
-- Both are acceptable — choose based on complexity
-
-### Classes and functions
-- **Prefer methods over standalone functions** — reusable logic belongs inside a class by default
-- Only use module-level functions for truly general utilities with no natural class home
-- Use `@classmethod` for alternative constructors (`from_file`, `from_dict`, `from_config`, etc.)
-- Use `@staticmethod` for pure utilities that relate to the class conceptually but need no instance or class access
-- The deciding question: is this creating an instance? → `@classmethod`. Is this a helper that happens to live here? → `@staticmethod`
-
-### File paths
-- Use `pathlib.Path` and `/` operator for path construction
-- Use `os.path` only when interfacing with legacy APIs that require strings
-
----
-
-## What "Clean" Means Here
-
-When rewriting or reviewing code, the target is:
-- **Short**: remove ceremony, redundant variables, unnecessary intermediate steps
-- **Idiomatic**: use the stdlib and Python builtins well; avoid reimplementing what exists
-- **Readable**: a competent Python reader should understand each line without a comment
-- **No niche dependencies**: if something can be done in a few lines of stdlib, don't add a package
-
----
-
-## How to Apply This Skill
-
-### Writing new code
-1. Follow all preferences above by default
-2. If a preference is ambiguous for the situation, choose the more readable option and note it briefly
-3. Do not add boilerplate (argparse, logging setup, etc.) unless asked
-
-### Rewriting / refactoring existing code
-1. Preserve the logic exactly — only change style, not behavior
-2. Note each substantive change made and why (one line per change is enough)
-3. Do not introduce new dependencies
-4. If the original code has a bug unrelated to style, flag it separately — don't silently fix it
-
-### Reviewing code for style
-1. Point out deviations from the preferences above
-2. Show the preferred version inline, not just describe it
-3. Be specific: "use a comprehension here" + show it, rather than "this could be more Pythonic"
+- **Writing:** follow all of the above; add no boilerplate (argparse, logging setup) unless asked.
+- **Rewriting:** change style only and keep behavior exactly; add no dependencies; list each substantive change in one line. Flag an unrelated bug separately instead of fixing it.
+- **Reviewing:** name each deviation and show the preferred version inline ("use a comprehension here" plus the code), not "this could be more Pythonic".

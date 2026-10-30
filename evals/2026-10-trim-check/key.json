@@ -1,0 +1,62 @@
+{
+ "X01": {
+  "pid": "C1",
+  "skill": "critique-ml-research",
+  "arm": "new"
+ },
+ "X02": {
+  "pid": "C3",
+  "skill": "critique-ml-research",
+  "arm": "new"
+ },
+ "X03": {
+  "pid": "T2",
+  "skill": "tikz-figure",
+  "arm": "new"
+ },
+ "X04": {
+  "pid": "C3",
+  "skill": "critique-ml-research",
+  "arm": "old"
+ },
+ "X05": {
+  "pid": "C2",
+  "skill": "critique-ml-research",
+  "arm": "old"
+ },
+ "X06": {
+  "pid": "T3",
+  "skill": "tikz-figure",
+  "arm": "old"
+ },
+ "X07": {
+  "pid": "C2",
+  "skill": "critique-ml-research",
+  "arm": "new"
+ },
+ "X08": {
+  "pid": "T1",
+  "skill": "tikz-figure",
+  "arm": "new"
+ },
+ "X09": {
+  "pid": "T1",
+  "skill": "tikz-figure",
+  "arm": "old"
+ },
+ "X10": {
+  "pid": "C1",
+  "skill": "critique-ml-research",
+  "arm": "old"
+ },
+ "X11": {
+  "pid": "T2",
+  "skill": "tikz-figure",
+  "arm": "old"
+ },
+ "X12": {
+  "pid": "T3",
+  "skill": "tikz-figure",
+  "arm": "new"
+ }
+}
