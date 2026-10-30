@@ -1,0 +1,82 @@
+{
+ "Y01": {
+  "pid": "P-E3",
+  "skill": "plain-english",
+  "arm": "old"
+ },
+ "Y02": {
+  "pid": "C-R4",
+  "skill": "cut-to-the-chase",
+  "arm": "old"
+ },
+ "Y03": {
+  "pid": "C-R2",
+  "skill": "cut-to-the-chase",
+  "arm": "old"
+ },
+ "Y04": {
+  "pid": "P-B3",
+  "skill": "plain-english",
+  "arm": "new"
+ },
+ "Y05": {
+  "pid": "C-R2",
+  "skill": "cut-to-the-chase",
+  "arm": "new"
+ },
+ "Y06": {
+  "pid": "P-B2",
+  "skill": "plain-english",
+  "arm": "new"
+ },
+ "Y07": {
+  "pid": "P-B2",
+  "skill": "plain-english",
+  "arm": "old"
+ },
+ "Y08": {
+  "pid": "P-E3",
+  "skill": "plain-english",
+  "arm": "new"
+ },
+ "Y09": {
+  "pid": "C-R4",
+  "skill": "cut-to-the-chase",
+  "arm": "new"
+ },
+ "Y10": {
+  "pid": "C-K5",
+  "skill": "cut-to-the-chase",
+  "arm": "new"
+ },
+ "Y11": {
+  "pid": "C-K3",
+  "skill": "cut-to-the-chase",
+  "arm": "old"
+ },
+ "Y12": {
+  "pid": "P-E5",
+  "skill": "plain-english",
+  "arm": "old"
+ },
+ "Y13": {
+  "pid": "P-B3",
+  "skill": "plain-english",
+  "arm": "old"
+ },
+ "Y14": {
+  "pid": "P-E5",
+  "skill": "plain-english",
+  "arm": "new"
+ },
+ "Y15": {
+  "pid": "C-K5",
+  "skill": "cut-to-the-chase",
+  "arm": "old"
+ },
+ "Y16": {
+  "pid": "C-K3",
+  "skill": "cut-to-the-chase",
+  "arm": "new"
+ }
+}
