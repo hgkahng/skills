@@ -1,0 +1,6 @@
+V06	No, don't run it. `pg_wal` holds the write-ahead	walk you through checking that if you want.	101111	R2: closes with an unsolicited offer to walk through checking.
+V20	The YAML to TOML config migration is done	typo on line 40, which I also left.	101110	R2: offers a YAML transition period and a follow-up cleanup; R6: includes the "haven't checked config.py" aside and the initial failed-test account
+V11	It depends on whether you want to keep	can then recover with `git reset --hard <hash>`.	011101	R1: opens with "It depends", not an answer; R6: amend and reflog tangents
+V34	YAML to TOML migration is done in this	Want me to clean up those last two?	101111	R2: closes with an unsolicited offer to clean up.
+V36	That's normal: typing in the input changes state,	the page doesn't re-render. Want more on that?	101111	R2: closing "Want more on that?" is filler.
+V08	Not for anything sensitive: any XSS flaw lets	rotate refresh tokens. Prefer cookies for session tokens.	111111	-

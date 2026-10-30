@@ -1,0 +1,6 @@
+V18	`src/db/connect.test.js` failed because `DATABASE_URL` isn't set in the	because `DATABASE_URL` isn't set in the CI environment.	111111	-
+V03	Run: ``` git reset --soft HEAD~1 ``` This	commit that undoes it without rewriting shared history.	111111	-
+V05	# Hunting Down a Memory Leak in a	to start with and what to look for.	011111	R1 opens with title and guide-intro preamble; R2 closing checklist recap plus unsolicited offer
+V10	Generally no, not for anything sensitive. Any JavaScript	where you're confident no untrusted script can run.	111111	-
+V15	Method: confirm the leak, capture heap snapshots at	(Express, Fastify, NestJS), I can help interpret it.	101111	R2 closing checklist recap plus unsolicited offer to help
+V04	No, don't run that. `pg_wal` holds the write-ahead	help you work out what's holding the WAL.	101111	R2 unsolicited closing offer to help further

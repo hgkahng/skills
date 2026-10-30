@@ -1,0 +1,8 @@
+E1	explain	"What is a race condition?"
+E2	explain	"Why does my model get 99% accuracy on training data but only 70% on validation data?"
+E3	explain	"What does idempotent mean, and why do people care about it in APIs?"
+E4	explain	"How does a database index work?"
+E5	explain	"What's the difference between a process and a thread?"
+B1	boundary	"Explain what this error means and give me the fix: `ModuleNotFoundError: No module named 'torch'`"
+B2	boundary	"Explain what a p-value is."
+B3	boundary	"I'm a PhD student. Briefly: why does AdamW decouple weight decay from the gradient update, and when does it matter compared with Adam plus L2 regularization?"

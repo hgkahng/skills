@@ -1,0 +1,5 @@
+W13	Your model is overfitting: it has memorized the	I can suggest which fix to try first.	001111	Q1: regularization, weight decay, dropout, augment and distribution are never explained; Q2: 'close the gap' and 'carry over'
+W25	A database index is a separate, sorted data	or help design indexes for a specific query.	001111	Q1: B-tree, O(log n), low-cardinality, GIN/GiST, planner and expression index are not explained; Q2: 'bouncing through the index' and 'are not free'
+W04	A race condition is a bug that happens	avoid sharing the data in the first place.	101111	Q2: 'in the first place' and 'timing lines up wrong'
+W16	Adam rescales each parameter's update by a running	Loshchilov and Hutter, "Decoupled Weight Decay Regularization" (2019).	101111	Q2: 'tangled together'
+W01	A process is a running program with its	details vary by operating system and language runtime.	001111	Q1: address space, heap, stack, registers, program counter, GIL and CPU-bound are not explained; Q2: 'take down' and 'get around'

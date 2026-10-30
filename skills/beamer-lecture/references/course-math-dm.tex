@@ -1,0 +1,21 @@
+% course-math-dm.tex — option pack (template)
+% Needs XeLaTeX. zxjafont[hiragino-pron] uses macOS-only Hiragino fonts;
+% on Linux/Windows use [haranoaji] instead (ships with TeX Live; tested).
+% Do not use [noto] or [ipaex]: they failed to load on a stock Debian TeX Live.
+\usepackage{systeme}
+\usepackage{zxjatype}
+\usepackage[hiragino-pron]{zxjafont}
+\usepackage{pgfplots}
+\usepackage{kotex}
+\usepackage{bm}
+\usepackage{nicematrix}
+\usepackage[symbol]{footmisc}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+\usepackage[backend=biber, style=numeric-comp, sorting=ynt]{biblatex}
+\addbibresource{reference.bib}
+
+\newcommand*{\vertbar}{\rule[-1ex]{0.5pt}{2.5ex}}
+\newcommand*{\horzbar}{\rule[.5ex]{2.5ex}{0.5pt}}
+
+\setbeamersize{text margin right=10mm}

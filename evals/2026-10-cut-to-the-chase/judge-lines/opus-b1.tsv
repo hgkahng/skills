@@ -1,0 +1,6 @@
+V24	The config migration from YAML to TOML is	or it will fail to find its config.	111111	-
+V25	Mostly no, not for a typical web app.	on it yet. Want the details on free-threading?	101111	R2: ends with an offer nobody asked for ("Want the details...?")
+V14	Generally no: any XSS bug lets an attacker	keep tokens short-lived and enforce a strict Content-Security-Policy.	111111	-
+V27	The YAML-to-TOML migration is done: 14 files changed,	at the TOML file or deploys will break.	111111	-
+V08	Not for anything sensitive: any XSS flaw lets	rotate refresh tokens. Prefer cookies for session tokens.	101111	R2: last sentence repeats the cookie recommendation already made
+V07	`git reset --soft HEAD~1` This undoes the commit	that undoes the old one without rewriting history.	111111	-

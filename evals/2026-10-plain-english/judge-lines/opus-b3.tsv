@@ -1,0 +1,5 @@
+W12	A race condition is a bug where a	is to avoid sharing the data at all.	011111	threads, processes, lock, atomic operation, transaction not explained
+W09	Your model is memorizing the training data instead	I can point to the most likely cause.	011111	epoch, cross-validation, data augmentation, dropout, weight decay not explained
+W23	A database index works like the index at	sort by, and you leave the rest alone.	011111	'join' (and B-tree) not explained
+W19	**Why decouple.** With Adam plus L2, you add the	setup, not assuming the theory fully explains it.	101111	figurative 'fold into', 'the decoupled is better story'
+W26	**Why decouple:** With Adam plus L2, the penalty	also exempt biases and normalization parameters from decay.	101111	figurative 'doing real work'

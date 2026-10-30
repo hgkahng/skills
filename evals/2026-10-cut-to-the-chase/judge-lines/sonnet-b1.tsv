@@ -1,0 +1,6 @@
+V31	That's normal React behavior, not a bug. In	component, I can point to exactly what's re-rendering.	101101	R2 closing offer to paste component; R6 slow-render fix is a tangent
+V35	`git reset --soft HEAD~1` This undoes the commit	pushed the commit, use `git revert HEAD` instead.	111111	-
+V33	For a typical web app, mostly no. The	more specifically whether anything would be a concern.	101110	R2 closing offer and recap advice list; R6 subinterpreters, scaling options, memory tangents
+V19	Flask treats `/api/items` (no trailing slash) as an	accept both without a redirect, use `@app.route('/api/items', strict_slashes=False)`.	111111	-
+V28	For a typical web app, no, you don't	you don't need it for a web app.	111111	-
+V17	Mostly no: for a typical web app the	don't need it for a typical web app.	111111	-
