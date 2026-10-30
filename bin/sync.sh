@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 # Install every skill in ./skills into each agent's skills directory as a symlink.
 # Because they're symlinks back to this repo, editing a skill here updates it for
-# Claude Code, Codex, Cursor, and Hermes at once; `git pull` re-syncs everything.
+# Claude Code, Codex, Cursor, and Hermes at once. After a `git pull`, run it again
+# to link new skills and remove links to skills that were renamed or deleted.
 #
 # Usage:
-#   bin/sync.sh            # symlink all skills into every target dir
-#   bin/sync.sh --list     # show what would be linked, and current state
+#   bin/sync.sh            # symlink all skills into every target dir, prune broken links
+#   bin/sync.sh --list     # show what would be linked or removed, and current state
 #   bin/sync.sh --copy     # copy instead of symlink (for agents that don't follow links)
 
 set -euo pipefail
@@ -56,4 +57,22 @@ for target in "${TARGETS[@]}"; do
   done
 done
 
-[[ "$MODE" == "list" ]] || echo "synced $count skill link(s) across ${#TARGETS[@]} agent dir(s)."
+# Remove links left behind by skills that were renamed or deleted here. Only
+# links that point into this repo's skills/ and no longer resolve are touched;
+# links to anything else are left alone. (--copy installs are real folders, so
+# they are never removed automatically.)
+pruned=0
+for target in "${TARGETS[@]}"; do
+  [[ -d "$target" ]] || continue
+  for dest in "$target"/*; do
+    [[ -L "$dest" && ! -e "$dest" ]] || continue
+    [[ "$(readlink "$dest")" == "$SRC/"* ]] || continue
+    if [[ "$MODE" == "list" ]]; then
+      printf '  %-40s %s\n' "$dest" "broken (would be removed)"
+    else
+      rm "$dest"; pruned=$((pruned + 1))
+    fi
+  done
+done
+
+[[ "$MODE" == "list" ]] || echo "synced $count skill link(s) across ${#TARGETS[@]} agent dir(s); removed $pruned broken link(s)."
