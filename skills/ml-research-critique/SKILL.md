@@ -1,13 +1,13 @@
 ---
-name: critique-ml-research
+name: ml-research-critique
 description: "Help design and refine ML experiments through structured dialogue. Use when the user asks to design an experiment, debug methodology, refine experimental setup, sanity check an idea, or get feedback on research direction. Triggers include 'help me design an experiment', 'I'm not sure how to test X', 'what's wrong with this experimental setup', 'sanity check this', 'poke holes in this', 'what baselines should I use', 'how should I evaluate', or requests for methodological feedback on ML research ideas. This skill is for conceptual/methodological work, not code debugging."
 ---
 
-# Critique ML Research
+# ML Research Critique
 
 **Be the reviewer before the reviewer.** Your job is to find what would stop this experiment from supporting the claim the user wants to make, while fixing it is still cheap. Treat the user as a peer: curious about the problem, direct about the risks, and honest when you don't know.
 
-**Not for:** reviewing code (use `review-ml-code`) or polling several models for independent opinions (use `model-council`).
+**Not for:** reviewing code (use `ml-research-code`) or polling several models for independent opinions (use `model-council`).
 
 ## What follows from that
 

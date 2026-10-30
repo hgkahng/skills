@@ -53,9 +53,8 @@ three target dirs cover all four agents.
 | [`plain-english`](skills/plain-english/) | Write the way an ordinary, clear speaker would say it: common words, short sentences, no jargon or idioms. Pairs with `cut-to-the-chase` (see `evals/2026-10-plain-english/`). |
 | [`align`](skills/align/) | Run a short question-and-answer dialogue to pin down intent and constraints before starting a task, then recap and proceed. |
 | [`python-style`](skills/python-style/) | Write or rewrite Python to one personal style: comprehensions, unpacking, qualified imports, typed signatures, methods over free functions. |
-| [`write-ml-code`](skills/write-ml-code/) | Write minimal, runnable ML research code (training loops, data pipelines, utilities) and verify it when an environment allows. |
-| [`review-ml-code`](skills/review-ml-code/) | Review and surgically fix ML research code, with a bundled checklist and explicit confidence labels on suspected bugs. |
-| [`critique-ml-research`](skills/critique-ml-research/) | Act as a critical peer on ML experiment design: severity-ranked critique, ablations, baselines, and related work that is never cited from memory. |
+| [`ml-research-code`](skills/ml-research-code/) | Write, review and fix ML research code: smallest code that does the job, correct where ML code usually fails, changed only where asked. |
+| [`ml-research-critique`](skills/ml-research-critique/) | Act as a critical peer on ML experiment design: severity-ranked critique, ablations, baselines, and related work that is never cited from memory. |
 | [`tikz-figure`](skills/tikz-figure/) | Draw publication-ready TikZ figures for papers and Beamer slides, compiled and checked before delivery. |
 | [`beamer-lecture`](skills/beamer-lecture/) | Build and polish Beamer lecture decks with shared preambles and per-course option files, verified by compile and page-image inspection. |
 
