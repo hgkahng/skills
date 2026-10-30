@@ -27,9 +27,10 @@ Writing or reviewing against a guess wastes the whole pass. If the task or the c
 - **No leakage:** nothing fit on, tuned on, or selected by test data; augmentation on training data only.
 - **Reproducible:** seed random, numpy, torch, and cuda, and DataLoader workers. Note that this is reproducible, not deterministic, unless cuDNN determinism is also set.
 - **Resumable:** checkpoint model, optimizer, scheduler, step, and the AMP scaler when using mixed precision.
+- **Runs everywhere:** put script entry points under `if __name__ == "__main__":`. With `num_workers > 0`, DataLoader workers re-import the module on macOS and Windows, and unguarded top-level code crashes or runs twice.
 - **No silent waste:** log scalars with `.item()`; evaluate under `model.eval()` and `torch.inference_mode()`.
 
-When reviewing, check against [references/ml-checklist.md](references/ml-checklist.md), using judgment about what the code actually does rather than running every item.
+When writing or reviewing anything beyond a small snippet, check against [references/ml-checklist.md](references/ml-checklist.md), using judgment about what the code actually does rather than running every item.
 
 ## Change only what was asked
 

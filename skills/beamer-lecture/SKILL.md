@@ -5,84 +5,40 @@ description: "Create, edit, convert, debug, and visually polish academic Beamer 
 
 # Beamer Lecture
 
-Help build and maintain Beamer lecture slides. Output is `.tex`; verification is
-**compile → PNG → inspect images** (hard requirement).
+Build and maintain Beamer lecture slides as `.tex`. Two ideas drive everything here: **slides teach**, so students must be able to follow an idea in the order it is built and read each frame quickly; and **only the rendered page is real**, so TeX that compiles can still overflow, clip, or leave a widow.
 
-Keep the course Beamer theme unless asked to change it. Express design in TeX,
-theme tokens, and TikZ/pgfplots — not CSS or PPTX metaphors.
+Tasks: create a deck, topic, or frame; convert notes into slides (distill, don't transcribe every sentence); edit or polish existing `.tex` (respect its structure); fix LaTeX/Beamer errors.
 
-Preamble **architecture** (shared base plus thin per-course option files) is in
-[preamble-architecture.md](references/preamble-architecture.md). Also read
-[macros.md](references/macros.md) for `mymacro.sty` commands.
+## Slides teach
 
-## Tasks
+- **Background → intuition → formalism.** Open every deck, and every multi-frame topic, with why it matters and a mental-model frame right after `\maketitle`, before any definition. Each slide answers where we are, what the idea is, or what it looks like in practice.
+- **Examples and visuals over prose:** every definition or equation gets a concrete instance; prefer a TikZ/pgfplots figure or a table to a paragraph.
+- **Close with a conclusion frame:** the 2 to 4 points students should remember, not "thank you" or a slide-by-slide recap.
+- **Emphasis is cool blue** (`\textbf{\textcolor{blue}{...}}`, `\highlight[blue]{...}`), at most one or two marks per frame; red `\alert{}` only for real warnings.
+- **Wording:** no em dashes (`---`, `—`); use a comma, parentheses, or rewrite. Don't build sentences around a colon; a colon may introduce displayed math, a list, or a title suffix.
+- **Named frames.** `allowframebreaks` only for one long worked example that must stay a single unit.
 
-1. **Create** — full deck, multi-frame topic, or single frame (see pedagogy below)
-2. **Convert** notes/outlines → slides (distill; do not dump every sentence)
-3. **Edit / polish** existing `.tex` (respect structure unless asked)
-4. **Fix** LaTeX/Beamer errors (snippet + recompile + verify)
+## Only the rendered page is real
 
-## Pedagogy (core)
+**Workflow:** identify the course and use its preamble (shared base plus its option file) → write or edit frames → compile with that course's toolchain → render changed pages (all pages for a full deck) to PNG → inspect the images → fix and repeat until clean. Never report done from TeX alone. Engines, rendering commands, and the inspection checklist are in [compile-and-verify.md](references/compile-and-verify.md).
 
-1. **Background → intuition → formalization** — start with why/context, then the
-   conceptual picture, then definitions/mechanics/examples. Do not open a topic
-   with bare formalism.
-2. **Story-driven** — each slide answers where we are, what the idea is, or what it looks like in practice
-3. **Example-driven** — definitions and equations get concrete instances
-4. **Visuals over prose** — prefer TikZ/pgfplots/table over paragraphs ([figure-style.md](references/figure-style.md))
-5. **Open with background + intuition** for full deck / multi-frame topics (mental-model frame after `\maketitle`; see [frame-patterns.md](references/frame-patterns.md))
-6. **Conclusion-summary closer** — 2–4 takeaways, not “thank you”
-7. **Cool blue emphasis** — `\textbf{\textcolor{blue}{...}}` / `\highlight[blue]{...}`; reserve red `\alert{}` for real warnings
-8. **No em dashes.** Use a comma, parentheses, or rewrite. Do not use a colon when forming a sentence. A colon is fine to introduce displayed math, a list, or a title suffix.
-9. Prefer **named frames**; use `allowframebreaks` only for a long worked example that must stay one conceptual unit
+Layout rules that only the image can confirm:
+- **Columns by role:** text with an illustrating figure is asymmetric (e.g. `.575 / .375`); peer panels (definition vs. picture) are equal `0.5 / 0.5`, with no `\hfill` between half-widths.
+- **A block between bullets** (`definition`, `theorem`, `example`) aligns its left edge with the bullet *text*, using the `\item[]` + minipage pattern, measured on the PNG; never a guessed large `\hspace*`.
+- **Size plots to the companion text panel, once.** Leftover whitespace is not a reason to enlarge. Tick and axis labels no larger than body text; geometry plots at 1:1 aspect; `adjustbox` only when a figure risks overflowing.
+- **Labels sit at the tip** of what they label, padded into open space (`above right=3pt`), with `clip=false` near axis edges; re-check them after any resize.
+- **Never shrink to fit.** No `\tiny`, and no `\scriptsize` for body text (fine for tick labels and the IS code blocks); split the frame instead.
 
-## Layout
+## Keep each course's look
 
-- **Text + illustrating figure:** asymmetric columns (e.g. `.575 / .375`)
-- **Peer panels** (definition vs picture, equation vs matching plot): equal `0.5 / 0.5` (adjacent minipages or `columns` + `onlytextwidth`; avoid `\hfill` between half-widths)
-- **Blocks in lists:** `definition` / `theorem` / `example` between bullets → left edge aligns with **bullet text** (not the dots). Use the `\item[]` + minipage pattern in [frame-patterns.md](references/frame-patterns.md); verify on PNG
-- Size plots to **match the companion text panel**; do not fill leftover whitespace; one calibrated size then stop
-- Tick / axis labels ≤ body text (`\small` / `\scriptsize`)
-- Geometry plots: **1:1 data aspect**
-- `adjustbox` only when a figure risks overflowing the frame/column ([figure-style.md](references/figure-style.md))
-
-## TikZ / pgfplots labels
-
-1. Node **at the tip** (endpoint), not a guessed nearby `axis cs`
-2. Pad into **open space** (`above right=3pt`, etc.) — off the ray, not toward axes/other arrows
-3. `clip=false` when labels sit near the axis edge (default clip cuts characters)
-4. Re-check labels on a screenshot after any resize
-
-## Workflow
-
-1. Identify the course → use that course's preamble (base + option file)
-2. Edit / write frames ([frame-patterns.md](references/frame-patterns.md))
-3. Compile per course toolchain
-4. Render changed pages (or all, for full decks) to PNG
-5. **Inspect the images** (overflow, widows, clipping, incomplete labels, plot scale, wrong emphasis)
-6. Fix → recompile → recheck until clean
-
-Details: [compile-and-verify.md](references/compile-and-verify.md).
+Don't change the theme, fonts, or `\setbeamertemplate` settings, or add packages beyond the course preamble, unless asked. Course-specific features (the IS callout boxes, for example) stay in their course. Express design in TeX, theme colors, and TikZ, not CSS or slide-software habits.
 
 ## References (read when needed)
 
 | File | When |
 |---|---|
-| [frame-patterns.md](references/frame-patterns.md) | Frame structure, itemize + definition-box alignment, code spacing, openers/closers, overflow/widows |
-| [figure-style.md](references/figure-style.md) | Plots, colors, tip labels, columns with figures |
-| [compile-and-verify.md](references/compile-and-verify.md) | Engines, PNG render, inspection checklist |
-| [preamble-architecture.md](references/preamble-architecture.md) | Base + course option files |
-| [macros.md](references/macros.md) | `mymacro.sty` commands |
-
-## Do not
-
-- Skip compile + screenshot verification
-- Change theme / fonts / beamertemplate unless asked
-- Enlarge plots because “there is whitespace”
-- Hand-tune bare tip offsets like `(axis cs:2.35,0.85)` instead of tip + pad
-- Mix course-only features (IS callouts, etc.) into another course unless asked
-- Use `\tiny`, or `\scriptsize` for body text, to fit content; split the frame
-  (`\scriptsize` is fine for tick labels and the IS minted block)
-- Treat image-caption “still has whitespace” as a reason to enlarge again
-- Guess large `\hspace*` to shove definition boxes into lists; use the itemize `\item[]` pattern and measure on PNG
-- Use em dashes (`---` / `—`) in slide text; use a comma, parentheses, or rewrite. Do not form sentences with a colon.
+| [frame-patterns.md](references/frame-patterns.md) | Frame skeletons, itemize spacing, blocks inside lists, code blocks, openers and closers, overflow and widow rules |
+| [figure-style.md](references/figure-style.md) | Plot colors, sizes, axis defaults, tip-label details |
+| [compile-and-verify.md](references/compile-and-verify.md) | Engines per course, PDF to PNG, inspection checklist |
+| [preamble-architecture.md](references/preamble-architecture.md) | How the base preamble and course option files fit together |
+| [macros.md](references/macros.md) | `mymacro.sty` commands (bundled as `references/mymacro.sty`) |

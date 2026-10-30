@@ -9,14 +9,9 @@ Fan one self-contained prompt out to several AI models **in parallel**, then
 combine their independent answers. Convening a council = four decisions, in order:
 **mode → composition → prompts → combine**.
 
-## When to use
-
-- "Ask the council", "second opinion", "best of N", "what do other models think".
-- High-stakes or ambiguous work: architecture, security, risky refactors, close
-  tradeoffs, "is this any good".
-
-**Not** for quick factual lookups, or tasks needing members to edit files or run
-tools — members only return written opinions.
+Worth it for high-stakes or ambiguous work: architecture, security, risky
+refactors, close tradeoffs. **Not** for quick factual lookups, or tasks needing
+members to edit files or run tools: members only return written opinions.
 
 ## Explicit invocation
 
@@ -69,7 +64,8 @@ decorrelate the council like a random forest — details and a worked example in
 - **Vary the frame, freeze the core.** Write one **core block** — the question,
   artifact/code, hard constraints, and required answer shape — kept **verbatim**
   in every variant. Vary only the framing lens around it (risk-first,
-  simplicity-first, user-first, skeptic…).
+  simplicity-first, user-first, skeptic…). If variants drift in meaning,
+  disagreement becomes noise instead of signal.
 - **Keep one control member** on the plain, unparaphrased prompt.
 - **Log the member → variant mapping**; you'll need it in Step 4.
 - Judge mode: vary the *approach directive*, never the scoring criteria.
@@ -108,7 +104,5 @@ answer is framing-sensitive — report that explicitly and lower confidence.**
 - Prompts must be self-contained **questions/artifacts**, not agentic tasks; CLI
   members run in throwaway temp dirs so they can't touch your project.
 - `cursor-agent -p` may hang (known bug); the runner force-kills on timeout.
-- Paraphrasing must never touch the core block — if variants drift semantically,
-  disagreement is noise, not signal.
 - Running the council *from* a member (Claude Code invoking `claude -p`) is fine;
   `--exclude` it if you want only the other models' views.

@@ -108,9 +108,5 @@ skill, pre-registered kill condition), follow
 - **Platitudes**: a principle that nothing fails is decoration. Re-run step 2.
 - **Fiction**: inventing a "why" the author doesn't believe violates the
   constitution (True) — the frame will collapse under contradiction.
-- **Force-derived arbitrary rules**: "port 8080 because ports embody simplicity"
-  is fiction; list it as a hard constraint instead.
 - **Concept sprawl**: one behavior cluster, one principle. Several unrelated
   complaints deserve several small inceptions, not one grand unified theory.
-- **Silent installs**: producing the principle and immediately writing it into
-  AGENTS.md or settings. Placement is the user's call, always.
