@@ -5,108 +5,125 @@ description: "Turn behavioral rules for AI agents into the higher-level concept 
 
 # Inception
 
-Change an agent's behavior by installing the concept the behavior follows from,
-rather than the behaviors themselves. A rule list is a boundary, and boundaries
-invite boundary behavior: comply with the letter, drift on the spirit, fail in
-every situation the author didn't anticipate. A concept the agent operates *from*
-generates correct behavior in situations nobody enumerated — the rules become
-outputs, not inputs.
+A rule draws a line. An agent that is given lines learns to stand just inside
+them: it obeys the words and misses the purpose. A list of lines also ends where
+its author's foresight ended.
+
+A principle works differently. An agent that holds the idea behind the rules does
+not need them listed. It can work out the right behavior in a case nobody wrote
+down. The rules become what the agent produces, not what it is given.
+
+This skill finds that principle. It states the principle openly, with its
+reasons, and keeps a few rules only as examples of it. Whether a principle holds
+better than the rules is a claim to test, not to assume: see
+[`references/evaluation.md`](references/evaluation.md).
 
 ## When to use
 
-- **A correction keeps recurring.** The user has told agents the same thing across
-  sessions — the rule isn't taking.
-- **A rule list is about to be written.** A new skill, subagent, system prompt, or
-  AGENTS.md drafted as "always X, never Y" bullets.
-- **Letter-compliance without spirit.** A rule is technically obeyed while its
-  intent is violated (told "under 200 words", the agent cuts the caveat that
-  mattered).
+- **A correction keeps coming back.** The user has told agents the same thing in
+  several sessions. The rule is not holding.
+- **A rule list is about to be written.** Someone is drafting a new skill,
+  subagent, system prompt, or AGENTS.md as "always X, never Y" bullets.
+- **A rule is obeyed and its purpose is missed.** Told "under 200 words", the
+  agent cuts the one caveat that mattered.
 
-**Not** for genuinely arbitrary constraints — "use port 8080", "branch names start
-with `feat/`" have no deeper concept; forcing one produces fiction. Keep those as
-plain rules (see step 4).
+Do **not** use it for arbitrary constraints. "Use port 8080" and "branch names
+start with `feat/`" have no deeper idea behind them. A principle invented for
+them would be fiction. Keep them as plain rules (see step 4).
 
 ## The constitution
 
-Three properties are load-bearing; drop any and the method stops working:
+The method depends on three properties. Without any one of them it stops working.
 
-1. **Overt.** State the principle openly. What does the work is the agent having a
-   coherent frame to derive from — not the frame being hidden.
-2. **True.** The principle must be genuinely sound, with reasons the author
-   actually believes. A false or incoherent frame collapses the moment context
-   contradicts it, and behavior gets worse than with no instruction at all.
-3. **Positive.** Frame as the behavior to produce, not the behavior to suppress —
-   prohibitions activate the very concept they negate, and affirmative
-   instructions are followed more reliably.
+1. **Overt.** State the principle openly. The agent behaves well because it has a
+   coherent idea to reason from. Hiding the idea adds nothing.
+2. **True.** The principle must be sound, and the author must believe its reasons.
+   A false principle fails as soon as the context contradicts it. The agent then
+   behaves worse than it would with no instruction at all.
+3. **Positive.** Name the behavior to produce, not the behavior to avoid. A
+   prohibition brings to mind the thing it forbids. Agents also follow "do this"
+   more reliably than "don't do that".
 
 ## Method
 
-**1. Capture the intent.** From the user's draft rules, complaint, or gaming
-example, write one sentence of *intent*: what should be true of the agent's
-behavior, and in which scope. Save it — it is also the evaluation rubric later.
+**1. Capture the intent.** Read the user's draft rules, their complaint, or their
+example of a rule being gamed. Write the *intent* in one sentence: what should be
+true of the agent's behavior, and in which scope. Keep the sentence. It is also
+the test in the evaluation later.
 
-**2. Climb the ladder.** Ask repeatedly: *"what would have to be true for the
-desired behavior to be the natural one?"* Each answer is a rung. Stop at the last
-rung that still **excludes** something: a concept from which the wanted behaviors
-derive but some behaviors demonstrably don't. One rung too high is a platitude
-("be helpful" derives everything, therefore nothing); one rung too low is just a
-restated rule.
+**2. Climb the ladder.** Ask: *"What would have to be true for the wanted behavior
+to be the natural one?"* Then ask it again of the answer. Each answer is one step
+more general than the last. Stop at the highest step that still **excludes**
+something. At that step the wanted behaviors follow from the principle, and some
+other behaviors clearly do not. One step higher is a platitude: "be helpful"
+permits everything, so it guides nothing. One step lower is only the rule again
+in other words.
 
-**3. Run the derivation test — both directions.**
-- *Forward:* does each rule in the draft fall out of the concept alone, without
-  being mentioned? Any rule that doesn't means the concept is wrong or the rule is
-  arbitrary (→ step 4).
-- *Reverse (over-generalization):* what **unwanted** behaviors also fall out?
-  Generalization cuts both ways — a concept generates behaviors nobody enumerated,
-  including bad ones. Each finding becomes a Boundary line in the output.
+**3. Test the principle in both directions.**
+- *Forward.* Does each draft rule follow from the principle alone, without being
+  mentioned? If a rule does not, either the principle is wrong or the rule is
+  arbitrary (see step 4).
+- *Reverse.* Which **unwanted** behaviors also follow from it? A principle
+  produces behaviors nobody listed, and some of them are bad. Each one you find
+  becomes a line under Boundary in the output.
 
-**4. Compose the output** in four parts:
+**4. Write the output** in four parts:
 
 ```markdown
-**Principle** — one or two sentences, affirmative, concrete enough to derive from.
-**Why** — the honest reasons the principle is sound (this is what makes it stick).
-**Derived anchors** — the 2–3 load-bearing rules, kept, but phrased as instances
-  ("hence: …") so they read as consequences, not arbitrary constraints.
-**Boundary** — where the principle stops; the over-generalization findings, plus
-  any genuinely arbitrary constraints listed plainly as "hard constraints".
+**Principle** — one or two sentences that say what to do, concrete enough to reason from.
+**Why** — the honest reasons the principle is sound. The reasons are what make it hold.
+**Derived anchors** — the 2–3 rules that matter most, kept and phrased as cases of
+  the principle ("hence: …"), so they read as consequences.
+**Boundary** — where the principle stops: the findings of the reverse test, then
+  any arbitrary constraints, listed plainly as "hard constraints".
 ```
 
-**5. Propose placement — never install.** Suggest the right layer (always-on
-instructions like AGENTS.md for identity-level concepts; a skill for on-demand
-postures; a one-off prompt for session-scoped needs) and stop. The output is
-text; the user decides where it goes. Write to a file only when explicitly
-instructed with a destination.
+**5. Propose a place. Do not install.** Suggest where the text belongs, then stop.
+A principle about who the agent is belongs in always-on instructions such as
+AGENTS.md. A stance needed only for some tasks belongs in a skill. A need that
+lasts one session belongs in a one-off prompt. The output is text, and the user
+decides where it goes. Write to a file only when the user tells you to and names
+the file.
 
 ## Worked example
 
 Draft rules: *"No preamble. Don't restate the question. Stop early. Don't
-self-correct mid-answer. Max 200 words."* — five patches over one cause.
+self-correct mid-answer. Max 200 words."* These are five patches over one cause.
 
-Ladder: why do long answers happen? → the reply narrates the reasoning that
-produced it → **"The reply is written fresh from the conclusion; reasoning is
-private scratch, not something the reader receives."**
+**Ladder.** Why do long answers happen? The reply narrates the reasoning that
+produced it. The principle follows: **"The reply is written fresh from the
+conclusion. The reasoning is private working, not something the reader
+receives."**
 
-Forward test: all five rules derive (a conclusion-first reply has no preamble, no
-visible self-correction, no padding — length falls out). Reverse test: could
-derive "omit necessary caveats" → Boundary: *"cut padding, not substance — keep
-the caveat that changes the reader's decision."*
+**Forward test.** All five rules follow. A reply that starts from the conclusion
+has no preamble, no visible self-correction, and no padding. It is short without
+a word limit.
 
-Result: one principle + one boundary replaced five rules and covers cases the
-rules missed (e.g. rambling code comments — never mentioned, still derived).
+**Reverse test.** "Leave out necessary caveats" could also follow. That gives the
+Boundary: *"Cut padding, not substance. Keep the caveat that changes the reader's
+decision."*
 
-## Evaluating whether it took
+**Result.** One principle and one boundary replace five rules. They also cover
+cases the rules missed. Rambling code comments were never mentioned, and the
+principle still rules them out.
 
-The intent sentence from step 1 is the rubric. Quick check: correction frequency —
-if the user stops re-issuing the same correction across sessions, it worked. For a
-rigorous A/B against the original rule list (token-matched arms, on-target /
-transfer / adversarial buckets, blind multi-model judging via the model-council
-skill, pre-registered kill condition), follow
-[`references/evaluation.md`](references/evaluation.md).
+## Checking whether it holds
+
+The intent sentence from step 1 is the test. The quick check is how often the
+correction returns. If the user stops repeating the same correction across
+sessions, the principle is holding.
+
+For a rigorous comparison with the original rule list, follow
+[`references/evaluation.md`](references/evaluation.md). It covers arms matched for
+length, three groups of test prompts (on-target, transfer, adversarial), blind
+judging by several models through the model-council skill, and a pass or fail bar
+that is set before the run.
 
 ## Pitfalls
 
-- **Platitudes**: a principle that nothing fails is decoration. Re-run step 2.
-- **Fiction**: inventing a "why" the author doesn't believe violates the
-  constitution (True) — the frame will collapse under contradiction.
-- **Concept sprawl**: one behavior cluster, one principle. Several unrelated
-  complaints deserve several small inceptions, not one grand unified theory.
+- **Platitudes.** A principle that nothing can fail is decoration. Go back to
+  step 2.
+- **Fiction.** A "why" the author does not believe breaks the second property,
+  True. The principle will fail when the context contradicts it.
+- **Sprawl.** One group of related behaviors gets one principle. Several unrelated
+  complaints need several small inceptions, not one grand theory.
