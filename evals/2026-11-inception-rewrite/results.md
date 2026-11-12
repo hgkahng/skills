@@ -61,7 +61,8 @@ Each criterion is out of 24 cells (12 transcripts x 2 judges).
    was not predicted, and the cause is a guess.
 3. **A fault of the skill, in both arms: a number limit gets an invented
    reason.** On I1, "at most 5 comments" was derived from the principle with a
-   made-up reason in all four replies (Q5: O 0 of 4 cells, R 0 of 4). By the
+   made-up reason in all four replies (Q5 cells passed: O 0 of 4, R 1 of 4; one
+   judge passed one R reply). By the
    pre-registered rule this is a fault of the skill, not of the rewrite. On I6
    the sonnet judge flagged the same thing in O for "no more than one page"
    (opus passed it). The skill's own worked example derives "Max 200 words" from
