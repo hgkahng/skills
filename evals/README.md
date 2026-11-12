@@ -9,6 +9,7 @@ blind transcripts, verified judge lines, mapping, and a results write-up.
 | `2026-10-library-smoke/` | do the ported skills route and build? | routing 22/22 and 23/24; Beamer and TikZ templates compile |
 | `2026-10-cut-to-the-chase/` | replace brief? | yes, 100 vs 94 of 108, no keep-case regression |
 | `2026-10-plain-english/` | does it add readability beyond cut-to-the-chase? | yes, grade 5.4 vs 8.3, no accuracy cost |
+| `2026-11-inception-rewrite/` | does the plain rewrite of inception apply the method no worse? | yes, 141 vs 127 of 144; the rewrite declines an all-arbitrary list, `main` does not; owner's blind check pending |
 
 ## Open: inception field test
 
