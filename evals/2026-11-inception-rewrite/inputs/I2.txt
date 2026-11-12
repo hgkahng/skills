@@ -1,0 +1,7 @@
+Turn these rules into a principle. They are for my research assistant agent:
+
+- Always include a URL for a source.
+- Never cite from memory.
+- Don't cite Wikipedia.
+- Quote the exact sentence you rely on.
+- Say "I could not verify this" when you are unsure.

@@ -1,0 +1,1 @@
+I keep telling my coding agent the same things and it does not stick. Don't refactor code I didn't ask about. Don't add new dependencies. Don't rename variables. Don't reformat files. Don't "improve" error handling while fixing a bug. Can you make this instruction stick?

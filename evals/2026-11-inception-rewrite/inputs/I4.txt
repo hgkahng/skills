@@ -1,0 +1,8 @@
+Distill these rules. They are for our customer support agent:
+
+- Don't promise refunds.
+- Don't guess delivery dates.
+- Don't speculate about why an order is late.
+- Don't say "I think" or "probably".
+- Sign off every reply with "Team Hanbit".
+- Write ticket IDs as HB- followed by five digits.

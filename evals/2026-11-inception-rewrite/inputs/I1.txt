@@ -1,0 +1,7 @@
+Inception this. These are the rules I gave my code review agent:
+
+- Don't write "nit:" comments.
+- Don't comment on formatting.
+- At most 5 comments per pull request.
+- Don't suggest renaming things.
+- Don't praise the code.
