@@ -75,6 +75,8 @@ Each criterion is out of 24 cells (12 transcripts x 2 judges).
   opus grader, which scored 111101 (quotes verified). The regrades replace the
   lines; the originals are in `judge-lines/opus-original-W12-W15.txt`. Totals
   do not change; Q5 and Q6 each move by one cell per arm.
+- One sonnet line (W11, arm O, I5) reads 101100 and gives no reason for the Q6
+  failure. It was not regraded. It is O's only Q6 failure, so O's Q6 may be 24.
 - Generation: `claude -p --model sonnet`, with settings, skills, MCP servers
   and plugins off, tools Read, Edit, Write, Glob and Grep, edits accepted, each
   run in its own folder. A probe before the runs confirmed that no instruction
@@ -82,6 +84,10 @@ Each criterion is out of 24 cells (12 transcripts x 2 judges).
 - The owner's blind check is prepared in `human-spotcheck/` and not yet done.
 
 ## Caveats
+
+The I5 gap depends on the rubric's reading that all five rules are arbitrary.
+Some O replies argued that two of them (dated result folders, YAML) have an
+honest reason. Whether they do is the owner's judgment.
 
 Six inputs, two samples per cell, same-family generator and judges. The arms
 differ in length (825 and 1006 words). The rubric checks that the method was
