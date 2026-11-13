@@ -1,0 +1,6 @@
+W19	**Intent:** Every factual claim the assistant gives can	Tell me the file if you want that.	111111	-
+W20	I read your AGENTS.md. It only has the	add it under the existing "Notes agent" section.	111111	-
+W21	I haven't changed anything. Here is a draft	can apply it to AGENTS.md if you'd like.	111101	Q5: the one-page limit is arbitrary but gets a derived reason ("because outcomes are short") instead of being listed as a hard constraint
+W22	**Intent:** The agent's diff contains only what the	Tell me the destination and I'll add it.	111111	-
+W23	**Intent:** Every review comment should be worth the	me a destination if you want me to.	111101	Q5: the cap of 5 is called arbitrary in the Boundary but is also given an invented reason in the anchors ("roughly five is what a reader can absorb")
+W24	**Intent** — The agent's diff contains only the	see whether the diff contains only the fix.	111111	-

@@ -1,0 +1,5 @@
+W07	**Intent:** The diff contains only what the task	see which part of the principle it missed.	111111	-
+W08	**Verdict: there's no principle to extract here.** These	the file name if you want me to.	111111	-
+W09	**Intent.** Every factual claim the assistant makes should	fewer unverifiable claims. I haven't run that comparison.	111111	-
+W10	**Intent:** The support agent never states as fact	me the path if you'd like me to.	111111	-
+W11	**Intent:** Agents working in the lab repo should follow	they could move out of the plain-rules list.	101101	Q2: all five rules are arbitrary, but the reply invents a reproducibility principle instead of saying none exists; Q5: derives exp/, YAML and runs/YYYY-MM-DD/ from that principle with invented reasons

@@ -1,0 +1,7 @@
+These are the rules for my meeting notes agent. My AGENTS.md is in this folder. Make these stick.
+
+- Don't include small talk.
+- No more than one page.
+- Always name an owner for each action item.
+- Put a date on every action item.
+- Don't record who disagreed with whom.

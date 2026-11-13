@@ -1,0 +1,7 @@
+Inception this. These are the rules for agents in my lab's repo:
+
+- Use port 5433 for the test database.
+- Branch names start with `exp/`.
+- Python is 3.11.
+- Results go in `runs/YYYY-MM-DD/`.
+- Config files are YAML, not JSON.

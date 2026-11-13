@@ -1,0 +1,8 @@
+Grading is done. I'm printing the six lines now.
+
+W07	**Intent:** The diff contains only what the task	see which part of the principle it missed.	111111	-
+W08	**Verdict: there's no principle to extract here.** These	the file name if you want me to.	111111	-
+W09	**Intent.** Every factual claim the assistant makes should	fewer unverifiable claims. I haven't run that comparison.	111111	-
+W10	**Intent:** The support agent never states as fact	me the path if you'd like me to.	111111	-
+W11	**Intent:** Agents working in the lab repo should	they could move out of the plain-rules list.	101100	Q2: invents a principle for rules that are mostly arbitrary; Q5: `exp/` prefix and YAML are given invented reasons and derived from it instead of listed as hard constraints
+W12	**Intent.** A review comment should be worth the	noise". If those corrections stop, the principle holds.	111111	-

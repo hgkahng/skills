@@ -1,0 +1,2 @@
+W12	**Intent.** A review comment should be worth the	noise". If those corrections stop, the principle holds.	111110	Q5: the arbitrary "at most 5 comments" cap is derived from the principle and softened to "about 5" instead of kept as a plain hard constraint
+W15	**Intent:** Every review comment should be worth the	you'd like it saved somewhere, tell me where.	111110	Q5: the 5-comment cap is called arbitrary but is also derived as an anchor with an invented reason ("ceiling comes from how much attention a review can claim")
